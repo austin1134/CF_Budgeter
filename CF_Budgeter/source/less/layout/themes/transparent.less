@@ -1,0 +1,196 @@
+body.transparent_lilac {
+
+  &:before {
+    background: @lilac url('../img/background/lilac.jpg') 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  .wrapper {
+    background-color: transparent;
+  }
+
+  .main {
+    background-color: rgba(36, 41, 44, 0.75);
+  }
+
+  .sidebar {
+    background-color: rgba(36, 41, 44, 0.3);
+  }
+
+  .dashboard {
+    background-color: transparent;
+  }
+
+  .header-navbar {
+    background-color: rgba(36, 41, 44, 0.8);
+
+    .nav>li.active,
+    .nav>li:hover,
+    .nav>li:focus,
+    .nav>li.open {
+      background-color: transparent;
+
+      a>span {
+        color: #fff;
+      }
+    }
+  }
+
+  .panel {
+    background-color: rgba(36, 41, 44, 0.3);
+
+    .panel-heading {
+      background-color: transparent;
+    }
+  }
+
+  .note-editor .note-toolbar.panel-heading {
+    background-color: rgba(36, 41, 44, 0.5);
+  }
+
+  .breadcrumb {
+    background-color: rgba(36, 41, 44, 0.3);
+  }
+
+  .datepicker-embed {
+    background-color: @gray-dark;
+  }
+
+  .datepicker {
+
+    .dow {
+      color: @gray-ui;
+    }
+
+    &.datepicker-dropdown {
+
+      &:after {
+        border-bottom-color: rgb(56,40,53);
+      }
+
+      &.datepicker-orient-top:before {
+        border-top-color: rgb(56,40,53);
+      }
+    }
+  }
+
+  .bootstrap-timepicker-widget {
+
+    &.dropdown-menu:after {
+      border-bottom-color: rgb(56,40,53);
+    }
+
+    &.timepicker-orient-bottom:after {
+      border-top-color: rgb(56,40,53);
+    }
+  }
+
+  .tab-content {
+    background-color: @gray-dark;
+  }
+
+  .nav-tabs, .nav-pills {
+
+    &>li {
+      margin-bottom: 0;
+
+      & > a, & > a:hover, & > a:focus, &.active > a, &.active > a:hover, &.active > a:focus {
+        border: 1px solid transparent;
+      }
+
+      &.active > a, &.active > a:focus, &.active > a:hover, & > a:hover {
+        background-color: @gray-dark;
+      }
+    }
+  }
+
+  .datalist-filter__detail {
+    background-color: @gray-dark;
+  }
+
+  .users-preview__prop {
+    background-color: @gray-dark;
+  }
+
+  .products-preview__prop {
+    background-color: @gray-dark;
+  }
+
+  .orders-preview__prop {
+    background-color: @gray-dark;
+  }
+
+  .dropdown-menu {
+    background-color: rgb(56,40,53);
+
+    li>a:focus, li>a:hover, li.active>a, li.active>a:hover {
+      background-color: @gray-dark;
+    }
+  }
+
+  .table-hover>tbody>tr:hover{
+    background-color: rgba(36, 41, 44, 0.3);
+  }
+
+  .table-hover>tbody>tr.selected {
+    background-color: lighten(rgba(36, 41, 44, 0.3), 5%);
+  }
+
+  .login {
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(36, 41, 44, 0.3);
+    }
+  }
+
+  .quickmenu {
+    background-color: transparent;
+
+    &__item {
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      &.active {
+        color: @title;
+        border-bottom: 2px solid @red;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .lm-widget {
+
+    &__item {
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .mailbox-item {
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .mailbox-contacts {
+
+    &__item {
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
