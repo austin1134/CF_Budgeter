@@ -1,0 +1,315 @@
+﻿@model CF_Budgeter.Models.Household
+@{
+    ViewBag.Title = "Manage Household" + " " + "-" + " " + @Model.Name;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+                <div class="container-fluid half-padding">
+                    <div class="datalist page page_users users">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Household Members</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>You have 80 users.</p>
+                                        <form class="datalist-filter">
+                                            <div class="input-group datalist-filter__search">
+                                                <input type="text" placeholder="Find user" class="form-control"><span class="input-group-btn">
+                                                    <button type="button" role="button" data-toggle="collapse" data-target="#datalist-filter__detail" aria-controls="users__filter-detail" aria-expanded="false" class="btn btn-default">
+                                                        <div class="fa fa-filter"></div>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <div id="datalist-filter__detail" class="collapse">
+                                                <div class="container-fluid datalist-filter__detail">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                                                                    <input type="text" placeholder="Location" class="form-control datalist-filter__location">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="input-group selectize__group">
+                                                                    <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+                                                                    <select placeholder="Email" class="datalist-filter__email"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 input-daterange">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon"><i class="fa fa-calendar-minus-o"></i></div>
+                                                                    <input type="text" value="" class="form-control datalist-filter__from">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></div>
+                                                                    <input type="text" value="" class="form-control datalist-filter__to">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input id="datalist-filter__salary" type="text" name="" value="" class="slider">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="checkbox checkbox-danger">
+                                                                    <input id="datalist-filter__actives" type="checkbox">
+                                                                    <label for="datalist-filter__actives">Actives only</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="datalist__result">
+                                            <ul role="tablist" class="nav nav-tabs">
+                                                <li role="presentation" class="active"><a href="#customers" aria-controls="customers" role="tab" data-toggle="tab">Customers&nbsp;</a></li>
+                                                <li role="presentation"><a href="#managers" aria-controls="managers" role="tab" data-toggle="tab">Managers&nbsp;</a></li>
+                                                <li role="presentation"><a href="#admins" aria-controls="admins" role="tab" data-toggle="tab">Admins&nbsp;</a></li>
+                                                <li role="presentation"><a href="#new" aria-controls="new" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>&nbsp;New</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div id="new" role="tabpanel" class="tab-pane">
+                                                    <form class="form users-new">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                                                    <input type="text" placeholder="Name" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                                                                    <input type="text" placeholder="Contact" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                                                                    <select placeholder="Role" class="selectpicker">
+                                                                                        <option value="customer">Customer</option>
+                                                                                        <option value="manager">Manager</option>
+                                                                                        <option value="admin">Admin</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                                                                    <input type="password" placeholder="Password" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                                                                                    <input type="text" placeholder="Location" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="fa fa-heartbeat"></i></div>
+                                                                                    <select placeholder="Status" class="selectpicker">
+                                                                                        <option value="customer">Active</option>
+                                                                                        <option value="manager">Confirmed</option>
+                                                                                        <option value="admin">Blocked</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <textarea rows="3" placeholder="Notes" class="form-control"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="fileupload">
+                                                                        <label>
+                                                                            <div class="fa fa-image"></div>
+                                                                            <input type="file">
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success">Save</button>
+                                                    </form>
+                                                </div>
+                                                <div id="customers" role="tabpanel" class="tab-pane active">
+                                                    <div class="scrollable scrollbar-macosx">
+                                                        <div class="container-fluid">
+                                                            <table width="100%" class="datalist__table table datatable display table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="users__table-id">#ID</th>
+                                                                        <th class="users__table-name">Name</th>
+                                                                        <th class="users__table-location">Location</th>
+                                                                        <th class="users__table-contact">Contact</th>
+                                                                        <th class="users__table-date">Date</th>
+                                                                        <th class="users__table-salary">Salary</th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th class="users__table-status">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    @{
+                                                                        foreach (var user in Model.Members)
+                                                                        {
+                                                                            <td>5217</td>
+                                                                            <td>@user.FirstName</td>
+                                                                            <td>@user.LastName</td>
+                                                                            <td>@user.Email</td>
+                                                                            <td> </td>
+                                                                            <td>$9001.67</td>
+                                                                            <td>Customer</td>
+                                                                            <td>[8, 1, 7, 7, 9, 7, 5, 4, 5, 7, 1, 7, 1, 9, 4, 8, 5, 2]</td>
+                                                                            <td>Inactive</td>
+                                                                        }
+                                                                    }
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="managers" role="tabpanel" class="tab-pane">
+                                                    <div class="scrollable scrollbar-macosx">
+                                                        <div class="container-fluid">
+                                                            <table width="100%" class="datalist__table table datatable display table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="users__table-id">#ID</th>
+                                                                        <th class="users__table-name">Name</th>
+                                                                        <th class="users__table-location">Location</th>
+                                                                        <th class="users__table-contact">Contact</th>
+                                                                        <th class="users__table-date">Date</th>
+                                                                        <th class="users__table-salary">Salary</th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th class="users__table-status">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>5858</td>
+                                                                        <td>Richard White</td>
+                                                                        <td>Brody</td>
+                                                                        <td>rwhite3@reuters.com</td>
+                                                                        <td>1/3/2016</td>
+                                                                        <td>$28633.51</td>
+                                                                        <td>Manager</td>
+                                                                        <td>[9, 7, 5, 8, 7, 0, 4, 0, 6, 7, 0, 1, 8, 1, 4, 4, 6, 0]</td>
+                                                                        <td>Inactive</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="admins" role="tabpanel" class="tab-pane">
+                                                    <div class="scrollable scrollbar-macosx">
+                                                        <div class="container-fluid">
+                                                            <table width="100%" class="datalist__table table datatable display table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="users__table-id">#ID</th>
+                                                                        <th class="users__table-name">Name</th>
+                                                                        <th class="users__table-location">Location</th>
+                                                                        <th class="users__table-contact">Contact</th>
+                                                                        <th class="users__table-date">Date</th>
+                                                                        <th class="users__table-salary">Salary</th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th class="users__table-status">Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>9991</td>
+                                                                        <td>Douglas Stevens</td>
+                                                                        <td>Voiron</td>
+                                                                        <td>dstevens0@tripadvisor.com</td>
+                                                                        <td>9/13/2015</td>
+                                                                        <td>$20705.16</td>
+                                                                        <td>Admin</td>
+                                                                        <td>[9, 6, 6, 7, 4, 5, 3, 1, 9, 0, 4, 2, 7, 1, 0, 7, 7, 6]</td>
+                                                                        <td>Inactive</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="users-preview datalist-preview">
+                                    <div class="users-preview__cont">
+                                        <div title="Name" class="users-preview__name">Name</div>
+                                        <div class="users-preview__data">
+                                            <div class="users-preview__photo">
+                                                <div style=""></div>
+                                            </div>
+                                            <div class="users-preview__info">
+                                                <div class="users-preview__position">Position</div>
+                                                <div class="users-preview__stat sparkline"></div>
+                                                <div class="users-preview__edit">
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button type="button" class="btn btn-danger">Edit</button>
+                                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-danger dropdown-toggle"><span class="caret"></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Details</a></li>
+                                                            <li><a href="#">Disable</a></li>
+                                                            <li><a href="#">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="users-preview__props">
+                                            <div title="Location" class="users-preview__prop"><i class="fa fa-map-marker"></i><span class="users-preview__location">Location</span></div>
+                                            <div title="Contact" class="users-preview__prop"><i class="fa fa-envelope"></i><span class="users-preview__contact">Contact</span></div>
+                                            <div class="users-preview__prop"><i class="fa fa-calendar"></i><span class="users-preview__date">Date</span></div>
+                                            <div class="users-preview__prop"><i class="fa fa-heartbeat"></i><span class="users-preview__status">Status</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

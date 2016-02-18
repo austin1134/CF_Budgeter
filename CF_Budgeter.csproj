@@ -1,0 +1,1354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F541AEE3-D771-4847-A5D4-9DBB4A3F1E50}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CF_Budgeter</RootNamespace>
+    <AssemblyName>CF_Budgeter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BudgetsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseholdsController.cs" />
+    <Compile Include="Controllers\InvitationsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Controllers\TransactionTypesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602151645212_initial.cs" />
+    <Compile Include="Migrations\201602151645212_initial.Designer.cs">
+      <DependentUpon>201602151645212_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Budget.cs" />
+    <Compile Include="Models\BudgetItem.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Household.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invitation.cs" />
+    <Compile Include="Models\InviteUsersViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\CF_Budgeter.dll" />
+    <Content Include="bin\CF_Budgeter.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <None Include="Code holder.cshtml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="dist\blank.html" />
+    <Content Include="dist\buttons.html" />
+    <Content Include="dist\charts.html" />
+    <Content Include="dist\compose.html" />
+    <Content Include="dist\controls.html" />
+    <Content Include="dist\css\demo.css" />
+    <Content Include="dist\css\demo.min.css" />
+    <Content Include="dist\css\right.css" />
+    <Content Include="dist\css\right.min.css" />
+    <Content Include="dist\general.html" />
+    <Content Include="dist\img\apple-touch-favicon.png" />
+    <Content Include="dist\img\background\lilac.jpg" />
+    <Content Include="dist\img\favicon.png" />
+    <Content Include="dist\img\nocover.png" />
+    <Content Include="dist\img\nophoto.png" />
+    <Content Include="dist\img\paint.svg" />
+    <Content Include="dist\img\right.png" />
+    <Content Include="dist\img\right.svg" />
+    <Content Include="dist\img\rightlogo.png" />
+    <Content Include="dist\inbox.html" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\js\demo.js" />
+    <Content Include="dist\js\main.js" />
+    <Content Include="dist\js\right.min.js" />
+    <Content Include="dist\js\template\charts.js" />
+    <Content Include="dist\js\template\controls.js" />
+    <Content Include="dist\js\template\index.js" />
+    <Content Include="dist\js\template\mails.js" />
+    <Content Include="dist\js\template\orders.js" />
+    <Content Include="dist\js\template\products.js" />
+    <Content Include="dist\js\template\table_data.js" />
+    <Content Include="dist\js\template\table_sortable.js" />
+    <Content Include="dist\js\template\texteditor.js" />
+    <Content Include="dist\js\template\users.js" />
+    <Content Include="dist\js\template\validation.js" />
+    <Content Include="dist\libs\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.min.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
+    <Content Include="dist\libs\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="dist\libs\bootstrap-select\dist\css\bootstrap-select.css" />
+    <Content Include="dist\libs\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="dist\libs\bootstrap-select\dist\js\bootstrap-select.js" />
+    <Content Include="dist\libs\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="dist\libs\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.css" />
+    <Content Include="dist\libs\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.min.css" />
+    <Content Include="dist\libs\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.css" />
+    <Content Include="dist\libs\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.min.css" />
+    <Content Include="dist\libs\bootstrap-switch\dist\js\bootstrap-switch.js" />
+    <Content Include="dist\libs\bootstrap-switch\dist\js\bootstrap-switch.min.js" />
+    <Content Include="dist\libs\bootstrap-tabdrop\bootstrap-tabdrop.min.js" />
+    <Content Include="dist\libs\bootstrap-timepicker\css\bootstrap-timepicker.css" />
+    <Content Include="dist\libs\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="dist\libs\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="dist\libs\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="dist\libs\bootstrap-validator\dist\validator.js" />
+    <Content Include="dist\libs\bootstrap-validator\dist\validator.min.js" />
+    <Content Include="dist\libs\bootstrap\css\bootstrap.css" />
+    <Content Include="dist\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="dist\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\libs\bootstrap\js\bootstrap.js" />
+    <Content Include="dist\libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="dist\libs\chart.js\Chart.min.js" />
+    <Content Include="dist\libs\codemirror\addon\comment\comment.js" />
+    <Content Include="dist\libs\codemirror\addon\comment\continuecomment.js" />
+    <Content Include="dist\libs\codemirror\addon\dialog\dialog.css" />
+    <Content Include="dist\libs\codemirror\addon\dialog\dialog.js" />
+    <Content Include="dist\libs\codemirror\addon\display\autorefresh.js" />
+    <Content Include="dist\libs\codemirror\addon\display\fullscreen.css" />
+    <Content Include="dist\libs\codemirror\addon\display\fullscreen.js" />
+    <Content Include="dist\libs\codemirror\addon\display\panel.js" />
+    <Content Include="dist\libs\codemirror\addon\display\placeholder.js" />
+    <Content Include="dist\libs\codemirror\addon\display\rulers.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\closetag.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\continuelist.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\matchtags.js" />
+    <Content Include="dist\libs\codemirror\addon\edit\trailingspace.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\brace-fold.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\comment-fold.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\foldcode.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="dist\libs\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\indent-fold.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\markdown-fold.js" />
+    <Content Include="dist\libs\codemirror\addon\fold\xml-fold.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\anyword-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\css-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\html-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\javascript-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\show-hint.css" />
+    <Content Include="dist\libs\codemirror\addon\hint\show-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\sql-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\hint\xml-hint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\coffeescript-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\css-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\html-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\javascript-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\json-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\lint.css" />
+    <Content Include="dist\libs\codemirror\addon\lint\lint.js" />
+    <Content Include="dist\libs\codemirror\addon\lint\yaml-lint.js" />
+    <Content Include="dist\libs\codemirror\addon\merge\merge.css" />
+    <Content Include="dist\libs\codemirror\addon\merge\merge.js" />
+    <Content Include="dist\libs\codemirror\addon\mode\loadmode.js" />
+    <Content Include="dist\libs\codemirror\addon\mode\multiplex.js" />
+    <Content Include="dist\libs\codemirror\addon\mode\multiplex_test.js" />
+    <Content Include="dist\libs\codemirror\addon\mode\overlay.js" />
+    <Content Include="dist\libs\codemirror\addon\mode\simple.js" />
+    <Content Include="dist\libs\codemirror\addon\runmode\colorize.js" />
+    <Content Include="dist\libs\codemirror\addon\runmode\runmode-standalone.js" />
+    <Content Include="dist\libs\codemirror\addon\runmode\runmode.js" />
+    <Content Include="dist\libs\codemirror\addon\runmode\runmode.node.js" />
+    <Content Include="dist\libs\codemirror\addon\scroll\annotatescrollbar.js" />
+    <Content Include="dist\libs\codemirror\addon\scroll\scrollpastend.js" />
+    <Content Include="dist\libs\codemirror\addon\scroll\simplescrollbars.css" />
+    <Content Include="dist\libs\codemirror\addon\scroll\simplescrollbars.js" />
+    <Content Include="dist\libs\codemirror\addon\search\match-highlighter.js" />
+    <Content Include="dist\libs\codemirror\addon\search\matchesonscrollbar.css" />
+    <Content Include="dist\libs\codemirror\addon\search\matchesonscrollbar.js" />
+    <Content Include="dist\libs\codemirror\addon\search\search.js" />
+    <Content Include="dist\libs\codemirror\addon\search\searchcursor.js" />
+    <Content Include="dist\libs\codemirror\addon\selection\active-line.js" />
+    <Content Include="dist\libs\codemirror\addon\selection\mark-selection.js" />
+    <Content Include="dist\libs\codemirror\addon\selection\selection-pointer.js" />
+    <Content Include="dist\libs\codemirror\addon\tern\tern.css" />
+    <Content Include="dist\libs\codemirror\addon\tern\tern.js" />
+    <Content Include="dist\libs\codemirror\addon\tern\worker.js" />
+    <Content Include="dist\libs\codemirror\addon\wrap\hardwrap.js" />
+    <Content Include="dist\libs\codemirror\keymap\emacs.js" />
+    <Content Include="dist\libs\codemirror\keymap\sublime.js" />
+    <Content Include="dist\libs\codemirror\keymap\vim.js" />
+    <Content Include="dist\libs\codemirror\lib\codemirror.css" />
+    <Content Include="dist\libs\codemirror\lib\codemirror.js" />
+    <Content Include="dist\libs\codemirror\mode\apl\apl.js" />
+    <Content Include="dist\libs\codemirror\mode\asciiarmor\asciiarmor.js" />
+    <Content Include="dist\libs\codemirror\mode\asn.1\asn.1.js" />
+    <Content Include="dist\libs\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="dist\libs\codemirror\mode\brainfuck\brainfuck.js" />
+    <Content Include="dist\libs\codemirror\mode\clike\clike.js" />
+    <Content Include="dist\libs\codemirror\mode\clojure\clojure.js" />
+    <Content Include="dist\libs\codemirror\mode\cmake\cmake.js" />
+    <Content Include="dist\libs\codemirror\mode\cobol\cobol.js" />
+    <Content Include="dist\libs\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="dist\libs\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="dist\libs\codemirror\mode\css\css.js" />
+    <Content Include="dist\libs\codemirror\mode\cypher\cypher.js" />
+    <Content Include="dist\libs\codemirror\mode\dart\dart.js" />
+    <Content Include="dist\libs\codemirror\mode\diff\diff.js" />
+    <Content Include="dist\libs\codemirror\mode\django\django.js" />
+    <Content Include="dist\libs\codemirror\mode\dockerfile\dockerfile.js" />
+    <Content Include="dist\libs\codemirror\mode\dtd\dtd.js" />
+    <Content Include="dist\libs\codemirror\mode\dylan\dylan.js" />
+    <Content Include="dist\libs\codemirror\mode\d\d.js" />
+    <Content Include="dist\libs\codemirror\mode\ebnf\ebnf.js" />
+    <Content Include="dist\libs\codemirror\mode\ecl\ecl.js" />
+    <Content Include="dist\libs\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="dist\libs\codemirror\mode\elm\elm.js" />
+    <Content Include="dist\libs\codemirror\mode\erlang\erlang.js" />
+    <Content Include="dist\libs\codemirror\mode\factor\factor.js" />
+    <Content Include="dist\libs\codemirror\mode\forth\forth.js" />
+    <Content Include="dist\libs\codemirror\mode\fortran\fortran.js" />
+    <Content Include="dist\libs\codemirror\mode\gas\gas.js" />
+    <Content Include="dist\libs\codemirror\mode\gfm\gfm.js" />
+    <Content Include="dist\libs\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="dist\libs\codemirror\mode\go\go.js" />
+    <Content Include="dist\libs\codemirror\mode\groovy\groovy.js" />
+    <Content Include="dist\libs\codemirror\mode\haml\haml.js" />
+    <Content Include="dist\libs\codemirror\mode\handlebars\handlebars.js" />
+    <Content Include="dist\libs\codemirror\mode\haskell\haskell.js" />
+    <Content Include="dist\libs\codemirror\mode\haxe\haxe.js" />
+    <Content Include="dist\libs\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="dist\libs\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="dist\libs\codemirror\mode\http\http.js" />
+    <Content Include="dist\libs\codemirror\mode\idl\idl.js" />
+    <Content Include="dist\libs\codemirror\mode\jade\jade.js" />
+    <Content Include="dist\libs\codemirror\mode\javascript\javascript.js" />
+    <Content Include="dist\libs\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="dist\libs\codemirror\mode\julia\julia.js" />
+    <Content Include="dist\libs\codemirror\mode\livescript\livescript.js" />
+    <Content Include="dist\libs\codemirror\mode\lua\lua.js" />
+    <Content Include="dist\libs\codemirror\mode\markdown\markdown.js" />
+    <Content Include="dist\libs\codemirror\mode\mathematica\mathematica.js" />
+    <Content Include="dist\libs\codemirror\mode\meta.js" />
+    <Content Include="dist\libs\codemirror\mode\mirc\mirc.js" />
+    <Content Include="dist\libs\codemirror\mode\mllike\mllike.js" />
+    <Content Include="dist\libs\codemirror\mode\modelica\modelica.js" />
+    <Content Include="dist\libs\codemirror\mode\mscgen\mscgen.js" />
+    <Content Include="dist\libs\codemirror\mode\mumps\mumps.js" />
+    <Content Include="dist\libs\codemirror\mode\nginx\nginx.js" />
+    <Content Include="dist\libs\codemirror\mode\nsis\nsis.js" />
+    <Content Include="dist\libs\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="dist\libs\codemirror\mode\octave\octave.js" />
+    <Content Include="dist\libs\codemirror\mode\oz\oz.js" />
+    <Content Include="dist\libs\codemirror\mode\pascal\pascal.js" />
+    <Content Include="dist\libs\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="dist\libs\codemirror\mode\perl\perl.js" />
+    <Content Include="dist\libs\codemirror\mode\php\php.js" />
+    <Content Include="dist\libs\codemirror\mode\pig\pig.js" />
+    <Content Include="dist\libs\codemirror\mode\properties\properties.js" />
+    <Content Include="dist\libs\codemirror\mode\puppet\puppet.js" />
+    <Content Include="dist\libs\codemirror\mode\python\python.js" />
+    <Content Include="dist\libs\codemirror\mode\q\q.js" />
+    <Content Include="dist\libs\codemirror\mode\rpm\rpm.js" />
+    <Content Include="dist\libs\codemirror\mode\rst\rst.js" />
+    <Content Include="dist\libs\codemirror\mode\ruby\ruby.js" />
+    <Content Include="dist\libs\codemirror\mode\rust\rust.js" />
+    <Content Include="dist\libs\codemirror\mode\r\r.js" />
+    <Content Include="dist\libs\codemirror\mode\sass\sass.js" />
+    <Content Include="dist\libs\codemirror\mode\scheme\scheme.js" />
+    <Content Include="dist\libs\codemirror\mode\shell\shell.js" />
+    <Content Include="dist\libs\codemirror\mode\sieve\sieve.js" />
+    <Content Include="dist\libs\codemirror\mode\slim\slim.js" />
+    <Content Include="dist\libs\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="dist\libs\codemirror\mode\smarty\smarty.js" />
+    <Content Include="dist\libs\codemirror\mode\solr\solr.js" />
+    <Content Include="dist\libs\codemirror\mode\soy\soy.js" />
+    <Content Include="dist\libs\codemirror\mode\sparql\sparql.js" />
+    <Content Include="dist\libs\codemirror\mode\spreadsheet\spreadsheet.js" />
+    <Content Include="dist\libs\codemirror\mode\sql\sql.js" />
+    <Content Include="dist\libs\codemirror\mode\stex\stex.js" />
+    <Content Include="dist\libs\codemirror\mode\stylus\stylus.js" />
+    <Content Include="dist\libs\codemirror\mode\swift\swift.js" />
+    <Content Include="dist\libs\codemirror\mode\tcl\tcl.js" />
+    <Content Include="dist\libs\codemirror\mode\textile\textile.js" />
+    <Content Include="dist\libs\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="dist\libs\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="dist\libs\codemirror\mode\tiki\tiki.css" />
+    <Content Include="dist\libs\codemirror\mode\tiki\tiki.js" />
+    <Content Include="dist\libs\codemirror\mode\toml\toml.js" />
+    <Content Include="dist\libs\codemirror\mode\tornado\tornado.js" />
+    <Content Include="dist\libs\codemirror\mode\troff\troff.js" />
+    <Content Include="dist\libs\codemirror\mode\ttcn-cfg\ttcn-cfg.js" />
+    <Content Include="dist\libs\codemirror\mode\ttcn\ttcn.js" />
+    <Content Include="dist\libs\codemirror\mode\turtle\turtle.js" />
+    <Content Include="dist\libs\codemirror\mode\twig\twig.js" />
+    <Content Include="dist\libs\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="dist\libs\codemirror\mode\vb\vb.js" />
+    <Content Include="dist\libs\codemirror\mode\velocity\velocity.js" />
+    <Content Include="dist\libs\codemirror\mode\verilog\verilog.js" />
+    <Content Include="dist\libs\codemirror\mode\vhdl\vhdl.js" />
+    <Content Include="dist\libs\codemirror\mode\vue\vue.js" />
+    <Content Include="dist\libs\codemirror\mode\xml\xml.js" />
+    <Content Include="dist\libs\codemirror\mode\xquery\xquery.js" />
+    <Content Include="dist\libs\codemirror\mode\yaml\yaml.js" />
+    <Content Include="dist\libs\codemirror\mode\z80\z80.js" />
+    <Content Include="dist\libs\codemirror\theme\3024-day.css" />
+    <Content Include="dist\libs\codemirror\theme\3024-night.css" />
+    <Content Include="dist\libs\codemirror\theme\abcdef.css" />
+    <Content Include="dist\libs\codemirror\theme\ambiance-mobile.css" />
+    <Content Include="dist\libs\codemirror\theme\ambiance.css" />
+    <Content Include="dist\libs\codemirror\theme\base16-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\base16-light.css" />
+    <Content Include="dist\libs\codemirror\theme\bespin.css" />
+    <Content Include="dist\libs\codemirror\theme\blackboard.css" />
+    <Content Include="dist\libs\codemirror\theme\cobalt.css" />
+    <Content Include="dist\libs\codemirror\theme\colorforth.css" />
+    <Content Include="dist\libs\codemirror\theme\dracula.css" />
+    <Content Include="dist\libs\codemirror\theme\eclipse.css" />
+    <Content Include="dist\libs\codemirror\theme\elegant.css" />
+    <Content Include="dist\libs\codemirror\theme\erlang-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\hopscotch.css" />
+    <Content Include="dist\libs\codemirror\theme\icecoder.css" />
+    <Content Include="dist\libs\codemirror\theme\isotope.css" />
+    <Content Include="dist\libs\codemirror\theme\lesser-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\liquibyte.css" />
+    <Content Include="dist\libs\codemirror\theme\material.css" />
+    <Content Include="dist\libs\codemirror\theme\mbo.css" />
+    <Content Include="dist\libs\codemirror\theme\mdn-like.css" />
+    <Content Include="dist\libs\codemirror\theme\midnight.css" />
+    <Content Include="dist\libs\codemirror\theme\monokai.css" />
+    <Content Include="dist\libs\codemirror\theme\neat.css" />
+    <Content Include="dist\libs\codemirror\theme\neo.css" />
+    <Content Include="dist\libs\codemirror\theme\night.css" />
+    <Content Include="dist\libs\codemirror\theme\paraiso-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\paraiso-light.css" />
+    <Content Include="dist\libs\codemirror\theme\pastel-on-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\railscasts.css" />
+    <Content Include="dist\libs\codemirror\theme\rubyblue.css" />
+    <Content Include="dist\libs\codemirror\theme\seti.css" />
+    <Content Include="dist\libs\codemirror\theme\solarized.css" />
+    <Content Include="dist\libs\codemirror\theme\the-matrix.css" />
+    <Content Include="dist\libs\codemirror\theme\tomorrow-night-bright.css" />
+    <Content Include="dist\libs\codemirror\theme\tomorrow-night-eighties.css" />
+    <Content Include="dist\libs\codemirror\theme\ttcn.css" />
+    <Content Include="dist\libs\codemirror\theme\twilight.css" />
+    <Content Include="dist\libs\codemirror\theme\vibrant-ink.css" />
+    <Content Include="dist\libs\codemirror\theme\xq-dark.css" />
+    <Content Include="dist\libs\codemirror\theme\xq-light.css" />
+    <Content Include="dist\libs\codemirror\theme\yeti.css" />
+    <Content Include="dist\libs\codemirror\theme\zenburn.css" />
+    <Content Include="dist\libs\datatables\media\css\dataTables.bootstrap.css" />
+    <Content Include="dist\libs\datatables\media\css\dataTables.bootstrap.min.css" />
+    <Content Include="dist\libs\datatables\media\css\jquery.dataTables.css" />
+    <Content Include="dist\libs\datatables\media\css\jquery.dataTables.min.css" />
+    <Content Include="dist\libs\datatables\media\images\favicon.ico" />
+    <Content Include="dist\libs\datatables\media\images\sort_asc.png" />
+    <Content Include="dist\libs\datatables\media\images\sort_asc_disabled.png" />
+    <Content Include="dist\libs\datatables\media\images\sort_both.png" />
+    <Content Include="dist\libs\datatables\media\images\sort_desc.png" />
+    <Content Include="dist\libs\datatables\media\images\sort_desc_disabled.png" />
+    <Content Include="dist\libs\datatables\media\js\buttons.bootstrap.js" />
+    <Content Include="dist\libs\datatables\media\js\dataTables.bootstrap.js" />
+    <Content Include="dist\libs\datatables\media\js\dataTables.bootstrap.min.js" />
+    <Content Include="dist\libs\datatables\media\js\dataTables.buttons.js" />
+    <Content Include="dist\libs\datatables\media\js\dataTables.responsive.js" />
+    <Content Include="dist\libs\datatables\media\js\dataTables.select.js" />
+    <Content Include="dist\libs\datatables\media\js\jquery.dataTables.js" />
+    <Content Include="dist\libs\datatables\media\js\jquery.dataTables.min.js" />
+    <Content Include="dist\libs\datatables\media\js\responsive.bootstrap.js" />
+    <Content Include="dist\libs\font-awesome\css\font-awesome.css" />
+    <Content Include="dist\libs\font-awesome\css\font-awesome.min.css" />
+    <Content Include="dist\libs\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="dist\libs\inputNumber\js\inputNumber.js" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.css" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.skinModern.css" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.skinNice.css" />
+    <Content Include="dist\libs\ionrangeslider\css\ion.rangeSlider.skinSimple.css" />
+    <Content Include="dist\libs\ionrangeslider\css\normalize.css" />
+    <Content Include="dist\libs\ionrangeslider\img\sprite-skin-flat.png" />
+    <Content Include="dist\libs\ionrangeslider\img\sprite-skin-modern.png" />
+    <Content Include="dist\libs\ionrangeslider\img\sprite-skin-nice.png" />
+    <Content Include="dist\libs\ionrangeslider\img\sprite-skin-simple.png" />
+    <Content Include="dist\libs\ionrangeslider\js\ion.rangeSlider.js" />
+    <Content Include="dist\libs\ionrangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="dist\libs\jquery.scrollbar\jquery.scrollbar.css" />
+    <Content Include="dist\libs\jquery.scrollbar\jquery.scrollbar.js" />
+    <Content Include="dist\libs\jquery.scrollbar\jquery.scrollbar.min.js" />
+    <Content Include="dist\libs\jquery\jquery.js" />
+    <Content Include="dist\libs\jquery\jquery.min.js" />
+    <Content Include="dist\libs\morris.js\morris.css" />
+    <Content Include="dist\libs\morris.js\morris.js" />
+    <Content Include="dist\libs\morris.js\morris.min.js" />
+    <Content Include="dist\libs\raphael\raphael-min.js" />
+    <Content Include="dist\libs\raphael\raphael.js" />
+    <Content Include="dist\libs\selectize\dist\css\selectize.bootstrap2.css" />
+    <Content Include="dist\libs\selectize\dist\css\selectize.bootstrap3.css" />
+    <Content Include="dist\libs\selectize\dist\css\selectize.css" />
+    <Content Include="dist\libs\selectize\dist\css\selectize.default.css" />
+    <Content Include="dist\libs\selectize\dist\css\selectize.legacy.css" />
+    <Content Include="dist\libs\selectize\dist\js\selectize.js" />
+    <Content Include="dist\libs\selectize\dist\js\selectize.min.js" />
+    <Content Include="dist\libs\selectize\dist\js\standalone\selectize.js" />
+    <Content Include="dist\libs\selectize\dist\js\standalone\selectize.min.js" />
+    <Content Include="dist\libs\selectize\plugins\remove_button\plugin.js" />
+    <Content Include="dist\libs\selectize\plugins\restore_on_backspace\plugin.js" />
+    <Content Include="dist\libs\sparkline\jquery.sparkline.min.js" />
+    <Content Include="dist\libs\summernote\dist\summernote-bs3.css" />
+    <Content Include="dist\libs\summernote\dist\summernote.css" />
+    <Content Include="dist\libs\summernote\dist\summernote.js" />
+    <Content Include="dist\libs\summernote\dist\summernote.min.js" />
+    <Content Include="dist\libs\tablesorter\jquery.metadata.js" />
+    <Content Include="dist\libs\tablesorter\jquery.tablesorter.min.js" />
+    <Content Include="dist\login.html" />
+    <Content Include="dist\modals.html" />
+    <Content Include="dist\orders.html" />
+    <Content Include="dist\panels.html" />
+    <Content Include="dist\products.html" />
+    <Content Include="dist\sent.html" />
+    <Content Include="dist\table_data.html" />
+    <Content Include="dist\table_sortable.html" />
+    <Content Include="dist\table_static.html" />
+    <Content Include="dist\tabs.html" />
+    <Content Include="dist\texteditor.html" />
+    <Content Include="dist\households.html" />
+    <Content Include="dist\users.html" />
+    <Content Include="dist\validation.html" />
+    <Content Include="docs\css\bootstrap.min.css" />
+    <Content Include="docs\css\desert.css" />
+    <Content Include="docs\css\docs.css" />
+    <Content Include="docs\img\favicon.png" />
+    <Content Include="docs\img\rightlogo.png" />
+    <Content Include="docs\img\screens.png" />
+    <Content Include="docs\index.html" />
+    <Content Include="docs\js\bootstrap.min.js" />
+    <Content Include="docs\js\jquery.min.js" />
+    <Content Include="docs\js\prettify.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="gulpfile.js" />
+    <Content Include="obj\Debug\CF_Budgeter.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CF_Budgeter.dll" />
+    <Content Include="obj\Debug\CF_Budgeter.pdb" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\CF_Budgeter.dll.config" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="dist\img\nophoto.psd" />
+    <Content Include="dist\libs\bootstrap-select\dist\css\bootstrap-select.css.map" />
+    <Content Include="dist\libs\bootstrap-select\dist\js\bootstrap-select.js.map" />
+    <Content Include="dist\libs\bootstrap\css\bootstrap.css.map" />
+    <Content Include="dist\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="dist\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="dist\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="dist\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="dist\libs\datatables\media\images\Sorting icons.psd" />
+    <Content Include="dist\libs\font-awesome\css\font-awesome.css.map" />
+    <Content Include="dist\libs\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="dist\libs\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="dist\libs\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="dist\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="dist\libs\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="dist\libs\jquery\jquery.min.map" />
+    <Content Include="dist\libs\selectize\plugins\remove_button\plugin.less" />
+    <Content Include="obj\Debug\CF_Budgeter.csproj.GenerateResource.Cache" />
+    <Content Include="obj\Debug\CF_Budgeter.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="source\img\apple-touch-favicon.png" />
+    <Content Include="source\img\background\lilac.jpg" />
+    <Content Include="source\img\favicon.png" />
+    <Content Include="source\img\nocover.png" />
+    <Content Include="source\img\nophoto.png" />
+    <Content Include="source\img\paint.svg" />
+    <Content Include="source\img\right.png" />
+    <Content Include="source\img\right.svg" />
+    <Content Include="source\img\rightlogo.png" />
+    <Content Include="source\jade\include\dataTable.html" />
+    <Content Include="source\jade\include\metrika.html" />
+    <Content Include="source\jade\include\table.html" />
+    <Content Include="source\jade\include\validation.html" />
+    <Content Include="source\js\demo.js" />
+    <Content Include="source\js\main.js" />
+    <Content Include="source\js\template\charts.js" />
+    <Content Include="source\js\template\controls.js" />
+    <Content Include="source\js\template\index.js" />
+    <Content Include="source\js\template\mails.js" />
+    <Content Include="source\js\template\orders.js" />
+    <Content Include="source\js\template\products.js" />
+    <Content Include="source\js\template\table_data.js" />
+    <Content Include="source\js\template\table_sortable.js" />
+    <Content Include="source\js\template\texteditor.js" />
+    <Content Include="source\js\template\users.js" />
+    <Content Include="source\js\template\validation.js" />
+    <Content Include="source\libs\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.min.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
+    <Content Include="source\libs\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="source\libs\bootstrap-select\dist\css\bootstrap-select.css" />
+    <Content Include="source\libs\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="source\libs\bootstrap-select\dist\js\bootstrap-select.js" />
+    <Content Include="source\libs\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="source\libs\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.css" />
+    <Content Include="source\libs\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.min.css" />
+    <Content Include="source\libs\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.css" />
+    <Content Include="source\libs\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.min.css" />
+    <Content Include="source\libs\bootstrap-switch\dist\js\bootstrap-switch.js" />
+    <Content Include="source\libs\bootstrap-switch\dist\js\bootstrap-switch.min.js" />
+    <Content Include="source\libs\bootstrap-tabdrop\bootstrap-tabdrop.min.js" />
+    <Content Include="source\libs\bootstrap-timepicker\css\bootstrap-timepicker.css" />
+    <Content Include="source\libs\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="source\libs\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="source\libs\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="source\libs\bootstrap-validator\dist\validator.js" />
+    <Content Include="source\libs\bootstrap-validator\dist\validator.min.js" />
+    <Content Include="source\libs\bootstrap\css\bootstrap.css" />
+    <Content Include="source\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="source\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="source\libs\bootstrap\js\bootstrap.js" />
+    <Content Include="source\libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="source\libs\chart.js\Chart.min.js" />
+    <Content Include="source\libs\codemirror\addon\comment\comment.js" />
+    <Content Include="source\libs\codemirror\addon\comment\continuecomment.js" />
+    <Content Include="source\libs\codemirror\addon\dialog\dialog.css" />
+    <Content Include="source\libs\codemirror\addon\dialog\dialog.js" />
+    <Content Include="source\libs\codemirror\addon\display\autorefresh.js" />
+    <Content Include="source\libs\codemirror\addon\display\fullscreen.css" />
+    <Content Include="source\libs\codemirror\addon\display\fullscreen.js" />
+    <Content Include="source\libs\codemirror\addon\display\panel.js" />
+    <Content Include="source\libs\codemirror\addon\display\placeholder.js" />
+    <Content Include="source\libs\codemirror\addon\display\rulers.js" />
+    <Content Include="source\libs\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="source\libs\codemirror\addon\edit\closetag.js" />
+    <Content Include="source\libs\codemirror\addon\edit\continuelist.js" />
+    <Content Include="source\libs\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="source\libs\codemirror\addon\edit\matchtags.js" />
+    <Content Include="source\libs\codemirror\addon\edit\trailingspace.js" />
+    <Content Include="source\libs\codemirror\addon\fold\brace-fold.js" />
+    <Content Include="source\libs\codemirror\addon\fold\comment-fold.js" />
+    <Content Include="source\libs\codemirror\addon\fold\foldcode.js" />
+    <Content Include="source\libs\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="source\libs\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="source\libs\codemirror\addon\fold\indent-fold.js" />
+    <Content Include="source\libs\codemirror\addon\fold\markdown-fold.js" />
+    <Content Include="source\libs\codemirror\addon\fold\xml-fold.js" />
+    <Content Include="source\libs\codemirror\addon\hint\anyword-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\css-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\html-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\javascript-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\show-hint.css" />
+    <Content Include="source\libs\codemirror\addon\hint\show-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\sql-hint.js" />
+    <Content Include="source\libs\codemirror\addon\hint\xml-hint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\coffeescript-lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\css-lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\html-lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\javascript-lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\json-lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\lint.css" />
+    <Content Include="source\libs\codemirror\addon\lint\lint.js" />
+    <Content Include="source\libs\codemirror\addon\lint\yaml-lint.js" />
+    <Content Include="source\libs\codemirror\addon\merge\merge.css" />
+    <Content Include="source\libs\codemirror\addon\merge\merge.js" />
+    <Content Include="source\libs\codemirror\addon\mode\loadmode.js" />
+    <Content Include="source\libs\codemirror\addon\mode\multiplex.js" />
+    <Content Include="source\libs\codemirror\addon\mode\multiplex_test.js" />
+    <Content Include="source\libs\codemirror\addon\mode\overlay.js" />
+    <Content Include="source\libs\codemirror\addon\mode\simple.js" />
+    <Content Include="source\libs\codemirror\addon\runmode\colorize.js" />
+    <Content Include="source\libs\codemirror\addon\runmode\runmode-standalone.js" />
+    <Content Include="source\libs\codemirror\addon\runmode\runmode.js" />
+    <Content Include="source\libs\codemirror\addon\runmode\runmode.node.js" />
+    <Content Include="source\libs\codemirror\addon\scroll\annotatescrollbar.js" />
+    <Content Include="source\libs\codemirror\addon\scroll\scrollpastend.js" />
+    <Content Include="source\libs\codemirror\addon\scroll\simplescrollbars.css" />
+    <Content Include="source\libs\codemirror\addon\scroll\simplescrollbars.js" />
+    <Content Include="source\libs\codemirror\addon\search\match-highlighter.js" />
+    <Content Include="source\libs\codemirror\addon\search\matchesonscrollbar.css" />
+    <Content Include="source\libs\codemirror\addon\search\matchesonscrollbar.js" />
+    <Content Include="source\libs\codemirror\addon\search\search.js" />
+    <Content Include="source\libs\codemirror\addon\search\searchcursor.js" />
+    <Content Include="source\libs\codemirror\addon\selection\active-line.js" />
+    <Content Include="source\libs\codemirror\addon\selection\mark-selection.js" />
+    <Content Include="source\libs\codemirror\addon\selection\selection-pointer.js" />
+    <Content Include="source\libs\codemirror\addon\tern\tern.css" />
+    <Content Include="source\libs\codemirror\addon\tern\tern.js" />
+    <Content Include="source\libs\codemirror\addon\tern\worker.js" />
+    <Content Include="source\libs\codemirror\addon\wrap\hardwrap.js" />
+    <Content Include="source\libs\codemirror\keymap\emacs.js" />
+    <Content Include="source\libs\codemirror\keymap\sublime.js" />
+    <Content Include="source\libs\codemirror\keymap\vim.js" />
+    <Content Include="source\libs\codemirror\lib\codemirror.css" />
+    <Content Include="source\libs\codemirror\lib\codemirror.js" />
+    <Content Include="source\libs\codemirror\mode\apl\apl.js" />
+    <Content Include="source\libs\codemirror\mode\asciiarmor\asciiarmor.js" />
+    <Content Include="source\libs\codemirror\mode\asn.1\asn.1.js" />
+    <Content Include="source\libs\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="source\libs\codemirror\mode\brainfuck\brainfuck.js" />
+    <Content Include="source\libs\codemirror\mode\clike\clike.js" />
+    <Content Include="source\libs\codemirror\mode\clojure\clojure.js" />
+    <Content Include="source\libs\codemirror\mode\cmake\cmake.js" />
+    <Content Include="source\libs\codemirror\mode\cobol\cobol.js" />
+    <Content Include="source\libs\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="source\libs\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="source\libs\codemirror\mode\css\css.js" />
+    <Content Include="source\libs\codemirror\mode\cypher\cypher.js" />
+    <Content Include="source\libs\codemirror\mode\dart\dart.js" />
+    <Content Include="source\libs\codemirror\mode\diff\diff.js" />
+    <Content Include="source\libs\codemirror\mode\django\django.js" />
+    <Content Include="source\libs\codemirror\mode\dockerfile\dockerfile.js" />
+    <Content Include="source\libs\codemirror\mode\dtd\dtd.js" />
+    <Content Include="source\libs\codemirror\mode\dylan\dylan.js" />
+    <Content Include="source\libs\codemirror\mode\d\d.js" />
+    <Content Include="source\libs\codemirror\mode\ebnf\ebnf.js" />
+    <Content Include="source\libs\codemirror\mode\ecl\ecl.js" />
+    <Content Include="source\libs\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="source\libs\codemirror\mode\elm\elm.js" />
+    <Content Include="source\libs\codemirror\mode\erlang\erlang.js" />
+    <Content Include="source\libs\codemirror\mode\factor\factor.js" />
+    <Content Include="source\libs\codemirror\mode\forth\forth.js" />
+    <Content Include="source\libs\codemirror\mode\fortran\fortran.js" />
+    <Content Include="source\libs\codemirror\mode\gas\gas.js" />
+    <Content Include="source\libs\codemirror\mode\gfm\gfm.js" />
+    <Content Include="source\libs\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="source\libs\codemirror\mode\go\go.js" />
+    <Content Include="source\libs\codemirror\mode\groovy\groovy.js" />
+    <Content Include="source\libs\codemirror\mode\haml\haml.js" />
+    <Content Include="source\libs\codemirror\mode\handlebars\handlebars.js" />
+    <Content Include="source\libs\codemirror\mode\haskell\haskell.js" />
+    <Content Include="source\libs\codemirror\mode\haxe\haxe.js" />
+    <Content Include="source\libs\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="source\libs\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="source\libs\codemirror\mode\http\http.js" />
+    <Content Include="source\libs\codemirror\mode\idl\idl.js" />
+    <Content Include="source\libs\codemirror\mode\jade\jade.js" />
+    <Content Include="source\libs\codemirror\mode\javascript\javascript.js" />
+    <Content Include="source\libs\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="source\libs\codemirror\mode\julia\julia.js" />
+    <Content Include="source\libs\codemirror\mode\livescript\livescript.js" />
+    <Content Include="source\libs\codemirror\mode\lua\lua.js" />
+    <Content Include="source\libs\codemirror\mode\markdown\markdown.js" />
+    <Content Include="source\libs\codemirror\mode\mathematica\mathematica.js" />
+    <Content Include="source\libs\codemirror\mode\meta.js" />
+    <Content Include="source\libs\codemirror\mode\mirc\mirc.js" />
+    <Content Include="source\libs\codemirror\mode\mllike\mllike.js" />
+    <Content Include="source\libs\codemirror\mode\modelica\modelica.js" />
+    <Content Include="source\libs\codemirror\mode\mscgen\mscgen.js" />
+    <Content Include="source\libs\codemirror\mode\mumps\mumps.js" />
+    <Content Include="source\libs\codemirror\mode\nginx\nginx.js" />
+    <Content Include="source\libs\codemirror\mode\nsis\nsis.js" />
+    <Content Include="source\libs\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="source\libs\codemirror\mode\octave\octave.js" />
+    <Content Include="source\libs\codemirror\mode\oz\oz.js" />
+    <Content Include="source\libs\codemirror\mode\pascal\pascal.js" />
+    <Content Include="source\libs\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="source\libs\codemirror\mode\perl\perl.js" />
+    <Content Include="source\libs\codemirror\mode\php\php.js" />
+    <Content Include="source\libs\codemirror\mode\pig\pig.js" />
+    <Content Include="source\libs\codemirror\mode\properties\properties.js" />
+    <Content Include="source\libs\codemirror\mode\puppet\puppet.js" />
+    <Content Include="source\libs\codemirror\mode\python\python.js" />
+    <Content Include="source\libs\codemirror\mode\q\q.js" />
+    <Content Include="source\libs\codemirror\mode\rpm\rpm.js" />
+    <Content Include="source\libs\codemirror\mode\rst\rst.js" />
+    <Content Include="source\libs\codemirror\mode\ruby\ruby.js" />
+    <Content Include="source\libs\codemirror\mode\rust\rust.js" />
+    <Content Include="source\libs\codemirror\mode\r\r.js" />
+    <Content Include="source\libs\codemirror\mode\sass\sass.js" />
+    <Content Include="source\libs\codemirror\mode\scheme\scheme.js" />
+    <Content Include="source\libs\codemirror\mode\shell\shell.js" />
+    <Content Include="source\libs\codemirror\mode\sieve\sieve.js" />
+    <Content Include="source\libs\codemirror\mode\slim\slim.js" />
+    <Content Include="source\libs\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="source\libs\codemirror\mode\smarty\smarty.js" />
+    <Content Include="source\libs\codemirror\mode\solr\solr.js" />
+    <Content Include="source\libs\codemirror\mode\soy\soy.js" />
+    <Content Include="source\libs\codemirror\mode\sparql\sparql.js" />
+    <Content Include="source\libs\codemirror\mode\spreadsheet\spreadsheet.js" />
+    <Content Include="source\libs\codemirror\mode\sql\sql.js" />
+    <Content Include="source\libs\codemirror\mode\stex\stex.js" />
+    <Content Include="source\libs\codemirror\mode\stylus\stylus.js" />
+    <Content Include="source\libs\codemirror\mode\swift\swift.js" />
+    <Content Include="source\libs\codemirror\mode\tcl\tcl.js" />
+    <Content Include="source\libs\codemirror\mode\textile\textile.js" />
+    <Content Include="source\libs\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="source\libs\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="source\libs\codemirror\mode\tiki\tiki.css" />
+    <Content Include="source\libs\codemirror\mode\tiki\tiki.js" />
+    <Content Include="source\libs\codemirror\mode\toml\toml.js" />
+    <Content Include="source\libs\codemirror\mode\tornado\tornado.js" />
+    <Content Include="source\libs\codemirror\mode\troff\troff.js" />
+    <Content Include="source\libs\codemirror\mode\ttcn-cfg\ttcn-cfg.js" />
+    <Content Include="source\libs\codemirror\mode\ttcn\ttcn.js" />
+    <Content Include="source\libs\codemirror\mode\turtle\turtle.js" />
+    <Content Include="source\libs\codemirror\mode\twig\twig.js" />
+    <Content Include="source\libs\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="source\libs\codemirror\mode\vb\vb.js" />
+    <Content Include="source\libs\codemirror\mode\velocity\velocity.js" />
+    <Content Include="source\libs\codemirror\mode\verilog\verilog.js" />
+    <Content Include="source\libs\codemirror\mode\vhdl\vhdl.js" />
+    <Content Include="source\libs\codemirror\mode\vue\vue.js" />
+    <Content Include="source\libs\codemirror\mode\xml\xml.js" />
+    <Content Include="source\libs\codemirror\mode\xquery\xquery.js" />
+    <Content Include="source\libs\codemirror\mode\yaml\yaml.js" />
+    <Content Include="source\libs\codemirror\mode\z80\z80.js" />
+    <Content Include="source\libs\codemirror\theme\3024-day.css" />
+    <Content Include="source\libs\codemirror\theme\3024-night.css" />
+    <Content Include="source\libs\codemirror\theme\abcdef.css" />
+    <Content Include="source\libs\codemirror\theme\ambiance-mobile.css" />
+    <Content Include="source\libs\codemirror\theme\ambiance.css" />
+    <Content Include="source\libs\codemirror\theme\base16-dark.css" />
+    <Content Include="source\libs\codemirror\theme\base16-light.css" />
+    <Content Include="source\libs\codemirror\theme\bespin.css" />
+    <Content Include="source\libs\codemirror\theme\blackboard.css" />
+    <Content Include="source\libs\codemirror\theme\cobalt.css" />
+    <Content Include="source\libs\codemirror\theme\colorforth.css" />
+    <Content Include="source\libs\codemirror\theme\dracula.css" />
+    <Content Include="source\libs\codemirror\theme\eclipse.css" />
+    <Content Include="source\libs\codemirror\theme\elegant.css" />
+    <Content Include="source\libs\codemirror\theme\erlang-dark.css" />
+    <Content Include="source\libs\codemirror\theme\hopscotch.css" />
+    <Content Include="source\libs\codemirror\theme\icecoder.css" />
+    <Content Include="source\libs\codemirror\theme\isotope.css" />
+    <Content Include="source\libs\codemirror\theme\lesser-dark.css" />
+    <Content Include="source\libs\codemirror\theme\liquibyte.css" />
+    <Content Include="source\libs\codemirror\theme\material.css" />
+    <Content Include="source\libs\codemirror\theme\mbo.css" />
+    <Content Include="source\libs\codemirror\theme\mdn-like.css" />
+    <Content Include="source\libs\codemirror\theme\midnight.css" />
+    <Content Include="source\libs\codemirror\theme\monokai.css" />
+    <Content Include="source\libs\codemirror\theme\neat.css" />
+    <Content Include="source\libs\codemirror\theme\neo.css" />
+    <Content Include="source\libs\codemirror\theme\night.css" />
+    <Content Include="source\libs\codemirror\theme\paraiso-dark.css" />
+    <Content Include="source\libs\codemirror\theme\paraiso-light.css" />
+    <Content Include="source\libs\codemirror\theme\pastel-on-dark.css" />
+    <Content Include="source\libs\codemirror\theme\railscasts.css" />
+    <Content Include="source\libs\codemirror\theme\rubyblue.css" />
+    <Content Include="source\libs\codemirror\theme\seti.css" />
+    <Content Include="source\libs\codemirror\theme\solarized.css" />
+    <Content Include="source\libs\codemirror\theme\the-matrix.css" />
+    <Content Include="source\libs\codemirror\theme\tomorrow-night-bright.css" />
+    <Content Include="source\libs\codemirror\theme\tomorrow-night-eighties.css" />
+    <Content Include="source\libs\codemirror\theme\ttcn.css" />
+    <Content Include="source\libs\codemirror\theme\twilight.css" />
+    <Content Include="source\libs\codemirror\theme\vibrant-ink.css" />
+    <Content Include="source\libs\codemirror\theme\xq-dark.css" />
+    <Content Include="source\libs\codemirror\theme\xq-light.css" />
+    <Content Include="source\libs\codemirror\theme\yeti.css" />
+    <Content Include="source\libs\codemirror\theme\zenburn.css" />
+    <Content Include="source\libs\datatables\media\css\dataTables.bootstrap.css" />
+    <Content Include="source\libs\datatables\media\css\dataTables.bootstrap.min.css" />
+    <Content Include="source\libs\datatables\media\css\jquery.dataTables.css" />
+    <Content Include="source\libs\datatables\media\css\jquery.dataTables.min.css" />
+    <Content Include="source\libs\datatables\media\images\favicon.ico" />
+    <Content Include="source\libs\datatables\media\images\sort_asc.png" />
+    <Content Include="source\libs\datatables\media\images\sort_asc_disabled.png" />
+    <Content Include="source\libs\datatables\media\images\sort_both.png" />
+    <Content Include="source\libs\datatables\media\images\sort_desc.png" />
+    <Content Include="source\libs\datatables\media\images\sort_desc_disabled.png" />
+    <Content Include="source\libs\datatables\media\js\buttons.bootstrap.js" />
+    <Content Include="source\libs\datatables\media\js\dataTables.bootstrap.js" />
+    <Content Include="source\libs\datatables\media\js\dataTables.bootstrap.min.js" />
+    <Content Include="source\libs\datatables\media\js\dataTables.buttons.js" />
+    <Content Include="source\libs\datatables\media\js\dataTables.responsive.js" />
+    <Content Include="source\libs\datatables\media\js\dataTables.select.js" />
+    <Content Include="source\libs\datatables\media\js\jquery.dataTables.js" />
+    <Content Include="source\libs\datatables\media\js\jquery.dataTables.min.js" />
+    <Content Include="source\libs\datatables\media\js\responsive.bootstrap.js" />
+    <Content Include="source\libs\font-awesome\css\font-awesome.css" />
+    <Content Include="source\libs\font-awesome\css\font-awesome.min.css" />
+    <Content Include="source\libs\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="source\libs\inputNumber\js\inputNumber.js" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.css" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.skinModern.css" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.skinNice.css" />
+    <Content Include="source\libs\ionrangeslider\css\ion.rangeSlider.skinSimple.css" />
+    <Content Include="source\libs\ionrangeslider\css\normalize.css" />
+    <Content Include="source\libs\ionrangeslider\img\sprite-skin-flat.png" />
+    <Content Include="source\libs\ionrangeslider\img\sprite-skin-modern.png" />
+    <Content Include="source\libs\ionrangeslider\img\sprite-skin-nice.png" />
+    <Content Include="source\libs\ionrangeslider\img\sprite-skin-simple.png" />
+    <Content Include="source\libs\ionrangeslider\js\ion.rangeSlider.js" />
+    <Content Include="source\libs\ionrangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="source\libs\jquery.scrollbar\jquery.scrollbar.css" />
+    <Content Include="source\libs\jquery.scrollbar\jquery.scrollbar.js" />
+    <Content Include="source\libs\jquery.scrollbar\jquery.scrollbar.min.js" />
+    <Content Include="source\libs\jquery\jquery.js" />
+    <Content Include="source\libs\jquery\jquery.min.js" />
+    <Content Include="source\libs\morris.js\morris.css" />
+    <Content Include="source\libs\morris.js\morris.js" />
+    <Content Include="source\libs\morris.js\morris.min.js" />
+    <Content Include="source\libs\raphael\raphael-min.js" />
+    <Content Include="source\libs\raphael\raphael.js" />
+    <Content Include="source\libs\selectize\dist\css\selectize.bootstrap2.css" />
+    <Content Include="source\libs\selectize\dist\css\selectize.bootstrap3.css" />
+    <Content Include="source\libs\selectize\dist\css\selectize.css" />
+    <Content Include="source\libs\selectize\dist\css\selectize.default.css" />
+    <Content Include="source\libs\selectize\dist\css\selectize.legacy.css" />
+    <Content Include="source\libs\selectize\dist\js\selectize.js" />
+    <Content Include="source\libs\selectize\dist\js\selectize.min.js" />
+    <Content Include="source\libs\selectize\dist\js\standalone\selectize.js" />
+    <Content Include="source\libs\selectize\dist\js\standalone\selectize.min.js" />
+    <Content Include="source\libs\selectize\plugins\remove_button\plugin.js" />
+    <Content Include="source\libs\selectize\plugins\restore_on_backspace\plugin.js" />
+    <Content Include="source\libs\sparkline\jquery.sparkline.min.js" />
+    <Content Include="source\libs\summernote\dist\summernote-bs3.css" />
+    <Content Include="source\libs\summernote\dist\summernote.css" />
+    <Content Include="source\libs\summernote\dist\summernote.js" />
+    <Content Include="source\libs\summernote\dist\summernote.min.js" />
+    <Content Include="source\libs\tablesorter\jquery.metadata.js" />
+    <Content Include="source\libs\tablesorter\jquery.tablesorter.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="source\img\nophoto.psd" />
+    <Content Include="source\jade\blank.jade" />
+    <Content Include="source\jade\buttons.jade" />
+    <Content Include="source\jade\charts.jade" />
+    <Content Include="source\jade\compose.jade" />
+    <Content Include="source\jade\controls.jade" />
+    <Content Include="source\jade\general.jade" />
+    <Content Include="source\jade\inbox.jade" />
+    <Content Include="source\jade\include\demo.jade" />
+    <Content Include="source\jade\include\icons.jade" />
+    <Content Include="source\jade\include\orders_finished.jade" />
+    <Content Include="source\jade\include\orders_new.jade" />
+    <Content Include="source\jade\include\orders_processing.jade" />
+    <Content Include="source\jade\include\products_affilate.jade" />
+    <Content Include="source\jade\include\products_brand.jade" />
+    <Content Include="source\jade\include\products_digital.jade" />
+    <Content Include="source\jade\include\users_admins.jade" />
+    <Content Include="source\jade\include\users_customers.jade" />
+    <Content Include="source\jade\include\users_managers.jade" />
+    <Content Include="source\jade\index.jade" />
+    <Content Include="source\jade\login.jade" />
+    <Content Include="source\jade\modals.jade" />
+    <Content Include="source\jade\orders.jade" />
+    <Content Include="source\jade\panels.jade" />
+    <Content Include="source\jade\parts\layout.jade" />
+    <Content Include="source\jade\parts\main.jade" />
+    <Content Include="source\jade\parts\navbar.jade" />
+    <Content Include="source\jade\parts\sidebar.jade" />
+    <Content Include="source\jade\products.jade" />
+    <Content Include="source\jade\sent.jade" />
+    <Content Include="source\jade\table_data.jade" />
+    <Content Include="source\jade\table_sortable.jade" />
+    <Content Include="source\jade\table_static.jade" />
+    <Content Include="source\jade\tabs.jade" />
+    <Content Include="source\jade\texteditor.jade" />
+    <Content Include="source\jade\users.jade" />
+    <Content Include="source\jade\validation.jade" />
+    <Content Include="source\less\demo.less" />
+    <Content Include="source\less\layout\blocks\body.less" />
+    <Content Include="source\less\layout\blocks\chart.less" />
+    <Content Include="source\less\layout\blocks\dashboard.less" />
+    <Content Include="source\less\layout\blocks\datalist.less" />
+    <Content Include="source\less\layout\blocks\fileupload.less" />
+    <Content Include="source\less\layout\blocks\header-navbar.less" />
+    <Content Include="source\less\layout\blocks\login.less" />
+    <Content Include="source\less\layout\blocks\logo.less" />
+    <Content Include="source\less\layout\blocks\mailbox.less" />
+    <Content Include="source\less\layout\blocks\main-heading.less" />
+    <Content Include="source\less\layout\blocks\main.less" />
+    <Content Include="source\less\layout\blocks\orders.less" />
+    <Content Include="source\less\layout\blocks\products.less" />
+    <Content Include="source\less\layout\blocks\quickmenu.less" />
+    <Content Include="source\less\layout\blocks\sidebar.less" />
+    <Content Include="source\less\layout\blocks\sidestat.less" />
+    <Content Include="source\less\layout\blocks\template.less" />
+    <Content Include="source\less\layout\blocks\userbar.less" />
+    <Content Include="source\less\layout\blocks\users.less" />
+    <Content Include="source\less\layout\blocks\widgets.less" />
+    <Content Include="source\less\layout\blocks\wrapper.less" />
+    <Content Include="source\less\layout\bootstrap\alert.less" />
+    <Content Include="source\less\layout\bootstrap\badge.less" />
+    <Content Include="source\less\layout\bootstrap\breadcrumb.less" />
+    <Content Include="source\less\layout\bootstrap\btn.less" />
+    <Content Include="source\less\layout\bootstrap\dropdown-menu.less" />
+    <Content Include="source\less\layout\bootstrap\form.less" />
+    <Content Include="source\less\layout\bootstrap\label.less" />
+    <Content Include="source\less\layout\bootstrap\modal.less" />
+    <Content Include="source\less\layout\bootstrap\paddings.less" />
+    <Content Include="source\less\layout\bootstrap\pagination.less" />
+    <Content Include="source\less\layout\bootstrap\panels.less" />
+    <Content Include="source\less\layout\bootstrap\progress.less" />
+    <Content Include="source\less\layout\bootstrap\table.less" />
+    <Content Include="source\less\layout\bootstrap\tabs.less" />
+    <Content Include="source\less\layout\bootstrap\tooltip.less" />
+    <Content Include="source\less\layout\colors.less" />
+    <Content Include="source\less\layout\libs\checkbox.less" />
+    <Content Include="source\less\layout\libs\codemirror.less" />
+    <Content Include="source\less\layout\libs\datatable.less" />
+    <Content Include="source\less\layout\libs\datepicker.less" />
+    <Content Include="source\less\layout\libs\inputNumber.less" />
+    <Content Include="source\less\layout\libs\ionRangeSlider.less" />
+    <Content Include="source\less\layout\libs\jquery.scrollbar.less" />
+    <Content Include="source\less\layout\libs\morris.less" />
+    <Content Include="source\less\layout\libs\select.less" />
+    <Content Include="source\less\layout\libs\selectize.less" />
+    <Content Include="source\less\layout\libs\sparkline.less" />
+    <Content Include="source\less\layout\libs\summernote.less" />
+    <Content Include="source\less\layout\libs\switch.less" />
+    <Content Include="source\less\layout\libs\timepicker.less" />
+    <Content Include="source\less\layout\mixins.less" />
+    <Content Include="source\less\layout\themes\solid.less" />
+    <Content Include="source\less\layout\themes\transparent.less" />
+    <Content Include="source\less\right.less" />
+    <Content Include="source\libs\bootstrap-select\dist\css\bootstrap-select.css.map" />
+    <Content Include="source\libs\bootstrap-select\dist\js\bootstrap-select.js.map" />
+    <Content Include="source\libs\bootstrap\css\bootstrap.css.map" />
+    <Content Include="source\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="source\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="source\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="source\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="source\libs\datatables\media\images\Sorting icons.psd" />
+    <Content Include="source\libs\font-awesome\css\font-awesome.css.map" />
+    <Content Include="source\libs\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="source\libs\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="source\libs\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="source\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="source\libs\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="source\libs\jquery\jquery.min.map" />
+    <Content Include="source\libs\selectize\plugins\remove_button\plugin.less" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_CreateHouseholdPartial.cshtml" />
+    <Content Include="Views\Shared\_JoinHouseholdPartial.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\_TransactionsPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginView.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Households\Details.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Households\Create.cshtml" />
+    <Content Include="Views\Households\Delete.cshtml" />
+    <Content Include="Views\Households\Edit.cshtml" />
+    <Content Include="Views\Households\Index.cshtml" />
+    <Content Include="Views\Invitations\Create.cshtml" />
+    <Content Include="Views\Invitations\Delete.cshtml" />
+    <Content Include="Views\Invitations\Details.cshtml" />
+    <Content Include="Views\Invitations\Edit.cshtml" />
+    <Content Include="Views\Invitations\Index.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\TransactionTypes\Create.cshtml" />
+    <Content Include="Views\TransactionTypes\Delete.cshtml" />
+    <Content Include="Views\TransactionTypes\Details.cshtml" />
+    <Content Include="Views\TransactionTypes\Edit.cshtml" />
+    <Content Include="Views\TransactionTypes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602151645212_initial.resx">
+      <DependentUpon>201602151645212_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\CF_Budgeter.Migrations.Account.resources" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61736</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44300/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
