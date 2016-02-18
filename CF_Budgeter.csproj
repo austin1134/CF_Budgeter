@@ -44,6 +44,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -142,12 +152,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -309,7 +313,18 @@
     <None Include="Code holder.cshtml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.mCustomScrollbar.css" />
     <Content Include="dist\blank.html" />
+    <Content Include="dist\bootstrap-social-gh-pages\.gitignore" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\css\bootstrap.css" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\css\docs.css" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\css\font-awesome.css" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\img\bootstrap-social.png" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\js\docs.js" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\js\jquery.js" />
+    <Content Include="dist\bootstrap-social-gh-pages\bootstrap-social.css" />
+    <Content Include="dist\bootstrap-social-gh-pages\index.html" />
     <Content Include="dist\buttons.html" />
     <Content Include="dist\charts.html" />
     <Content Include="dist\compose.html" />
@@ -738,10 +753,27 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include="dist\bootstrap-social-gh-pages\.editorconfig" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="dist\bootstrap-social-gh-pages\assets\fonts\FontAwesome.otf" />
+    <Content Include="dist\bootstrap-social-gh-pages\bootstrap-social.less" />
+    <Content Include="dist\bootstrap-social-gh-pages\bootstrap-social.scss" />
+    <Content Include="dist\bootstrap-social-gh-pages\bower.json" />
+    <Content Include="dist\bootstrap-social-gh-pages\LICENSE" />
+    <Content Include="dist\bootstrap-social-gh-pages\package.json" />
+    <Content Include="dist\bootstrap-social-gh-pages\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1291,6 +1323,7 @@
     <Content Include="Views\TransactionTypes\Details.cshtml" />
     <Content Include="Views\TransactionTypes\Edit.cshtml" />
     <Content Include="Views\TransactionTypes\Index.cshtml" />
+    <Content Include="Views\Shared\_CreateTransactionPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

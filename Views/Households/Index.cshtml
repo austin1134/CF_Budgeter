@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<CF_Budgeter.Models.Household>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Your Households";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new {@type = "button"}, new { @class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -31,3 +31,6 @@
 }
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

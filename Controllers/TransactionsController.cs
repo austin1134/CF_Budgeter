@@ -58,17 +58,9 @@ namespace CF_Budgeter.Controllers
                 var user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 if (user != null)
 
-                ////update account balance for each transaction
-                //var account = db.Accounts.FirstOrDefault(x => x.Id == transaction.AccountId);
-                //account.Balance += transaction.Amount; 
-
-                ////update income and expenses for the household
-                //var household = db.Households.FirstOrDefault(x => x.Id == account.HouseholdId);
-
-
                 {
                     transaction.Date = DateTimeOffset.Now;
-                    transaction.CategoryId =  ;
+                    //transaction.CategoryId =  ;
                     transaction.TransactionTypeId = transaction.TransactionTypeId;
 
                     db.Transactions.Add(transaction);
