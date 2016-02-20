@@ -27,7 +27,8 @@
 <body class="solid_dark">
     <div class="wrapper">
         <div class="login">
-                <div class="login__logo"></div>
+            <div class="login__logo"></div>
+            <div class="">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login__form", role = "form" }))
             {
                     @Html.AntiForgeryToken()
@@ -60,7 +61,7 @@
                             @Html.ActionLink("Forgot your password?", "ForgotPassword")
                         </p>*@
                 }
-        </form>
+        </div>
     </div>
     </div>
     <script src="~/dist/libs/jquery/jquery.min.js"></script>
