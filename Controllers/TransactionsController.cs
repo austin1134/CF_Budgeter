@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Util;
 using CF_Budgeter.Models;
 using Microsoft.AspNet.Identity;
 
@@ -19,8 +20,7 @@ namespace CF_Budgeter.Controllers
         // GET: Transactions
         public async Task<ActionResult> Index()
         {
-            var transactions = db.Transactions.Include(t => t.Account).Include(t => t.Category);
-            return View(await transactions.ToListAsync());
+            return View(await db.Transactions.ToListAsync());
         }
 
         // GET: Transactions/Details/5
@@ -39,16 +39,20 @@ namespace CF_Budgeter.Controllers
         }
 
         // GET: Transactions/Create
-        public ActionResult Create()
+        public ActionResult Create(int accountId)
         {
-            ViewBag.AccountId = new SelectList(db.Accounts, "Id", "Name");
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
-            return View();
+            CreateTransactionViewModel createTransactionViewModel = new CreateTransactionViewModel();
+
+            createTransactionViewModel.AccountId = accountId;
+            createTransactionViewModel.Categories = new SelectList(db.Categories, "Id", "Name");
+
+            return View(createTransactionViewModel);
         }
 
         // POST: Transactions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [RequireHttps]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,AccountId,Description,Date,Amount,TransactionTypeId,CategoryId,Reconciled,ReconciledAmount")] Transaction transaction)
@@ -59,15 +63,18 @@ namespace CF_Budgeter.Controllers
                 if (user != null)
 
                 {
-                    transaction.Date = DateTimeOffset.Now;
-                    //transaction.CategoryId =  ;
-                    transaction.TransactionTypeId = transaction.TransactionTypeId;
+                    transaction.AccountId = user.HouseholdId;
+                    //transaction.Date = DateTimeOffset.Now;
+                    ////transaction.CategoryId =  ;
+                    //transaction.TransactionTypeId = transaction.TransactionTypeId;
 
                     db.Transactions.Add(transaction);
                     await db.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
             }
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", transaction.CategoryId);
+            ViewBag.Category = new SelectList(db.Categories, "Id", "Name", transaction.Category);
 
             return View(transaction);
         }

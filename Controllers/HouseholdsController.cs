@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CF_Budgeter.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CF_Budgeter.Controllers
 {
@@ -27,7 +28,7 @@ namespace CF_Budgeter.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            }            
             Household household = await db.Households.FindAsync(id);
             if (household == null)
             {

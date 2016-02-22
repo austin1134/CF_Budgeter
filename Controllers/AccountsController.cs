@@ -29,18 +29,28 @@ namespace CF_Budgeter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = await db.Accounts.FindAsync(id);
-            if (account == null)
+            AccountDetailsViewModel accountDetailsViewModel = new AccountDetailsViewModel();
+            var account = await db.Accounts.FindAsync(id);
+            accountDetailsViewModel.Id = account.Id;
+            accountDetailsViewModel.HouseholdId = account.HouseholdId;
+            accountDetailsViewModel.Balance = account.Balance;
+            accountDetailsViewModel.Name = account.Name;
+            accountDetailsViewModel.ReconciledBalance = account.ReconciledBalance;
+            accountDetailsViewModel.Transactions = account.Transactions;
+
+            accountDetailsViewModel.createTransactionViewModel = new CreateTransactionViewModel();
+            accountDetailsViewModel.createTransactionViewModel.AccountId = account.Id;
+            accountDetailsViewModel.createTransactionViewModel.Categories = new SelectList(db.Categories, "Id", "Name");
+            if (accountDetailsViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(accountDetailsViewModel);
         }
 
         // GET: Accounts/Create
         public ActionResult Create()
         {
-            ViewBag.HouseholdId = new SelectList(db.Households, "Id", "Name");
             return View();
         }
 

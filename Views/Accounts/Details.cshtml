@@ -1,4 +1,4 @@
-﻿@model CF_Budgeter.Models.Account
+﻿@model CF_Budgeter.Models.AccountDetailsViewModel
 @using CF_Budgeter.Models
 @using CF_Budgeter.Controllers
 @{
@@ -113,7 +113,7 @@
                             <div class="feed-widget__list">
                                 <div class="feed-widget__item feed-widget__item_user">
                                     @{
-                                        IEnumerable<CF_Budgeter.Models.Transaction> Transaction = Model.Transactions;
+                                        
                                         @Html.Partial("_TransactionsPartial", Model.Transactions)
                                     }
                                 </div>
@@ -132,7 +132,7 @@
                     <div class="st-widget__wrap">
                         <div class="st-widget__cont">
                             @{
-                                @Html.Partial("_CreateTransactionPartial", new Transaction())
+                                @Html.Partial("_CreateTransactionPartial", Model.createTransactionViewModel)
                             }
                             @*<div class="st-widget__item st-widget__item_switch">
                                 <div class="st-widget__label">Site accessibility</div>
