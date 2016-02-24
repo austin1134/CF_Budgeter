@@ -13,6 +13,7 @@ namespace CF_Budgeter.Models
         }
         public int Id { get; set; }
         public string Name { get; set; }
+        public decimal TotalBudgetAmount { get; set; }
         public int HouseholdId { get; set; }
         
         public virtual ICollection<BudgetItem> BudgetItems { get; set; } 

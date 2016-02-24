@@ -20,7 +20,7 @@ namespace CF_Budgeter.Controllers
         // GET: Transactions
         public async Task<ActionResult> Index()
         {
-            return View(await db.Transactions.ToListAsync());
+            return View(await db.Transactions.OrderByDescending(t => t.Date).ToListAsync());
         }
 
         // GET: Transactions/Details/5
@@ -43,6 +43,7 @@ namespace CF_Budgeter.Controllers
         {
             CreateTransactionViewModel createTransactionViewModel = new CreateTransactionViewModel();
 
+            createTransactionViewModel.Date = DateTimeOffset.Now;
             createTransactionViewModel.AccountId = accountId;
             createTransactionViewModel.Categories = new SelectList(db.Categories, "Id", "Name");
 
@@ -64,13 +65,13 @@ namespace CF_Budgeter.Controllers
 
                 {
                     transaction.AccountId = user.HouseholdId;
-                    //transaction.Date = DateTimeOffset.Now;
-                    ////transaction.CategoryId =  ;
-                    //transaction.TransactionTypeId = transaction.TransactionTypeId;
+                    //createTransactionViewModel.Date = DateTimeOffset.Now;
+                    var account = db.Accounts.FirstOrDefault(x => x.Id == transaction.AccountId);
+                    account.Balance += transaction.Amount;
 
                     db.Transactions.Add(transaction);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Accounts", new {id = transaction.AccountId});
                 }
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", transaction.CategoryId);

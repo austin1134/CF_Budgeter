@@ -49,7 +49,7 @@ namespace CF_Budgeter.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,HouseholdId")] Budget budget)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,HouseholdId,TotalBudgetAmount")] Budget budget)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace CF_Budgeter.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,HouseholdId")] Budget budget)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,HouseholdId,TotalBudgetAmount")] Budget budget)
         {
             if (ModelState.IsValid)
             {

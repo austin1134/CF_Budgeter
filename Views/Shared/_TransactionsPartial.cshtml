@@ -9,33 +9,9 @@
                 <b><a href='./'> @User.Identity.Name</a></b><b> @transaction.Amount</b> @transaction.Description
             </div>
             <div class="feed-widget__date"> @transaction.Date</div>
+            @Html.ActionLink("Edit", "Edit", "Transactions", new { id = transaction.Id }, new { @type = "button" })
+            |
+            @Html.ActionLink("Delete", "Delete", "Transactions", new { id = transaction.Id }, new { @type = "button" })
         </div>
     </div>
 }
-@*<div class="feed-widget__item feed-widget__item_user">
-    <div class="feed-widget__ico"><i class="fa fa-credit-card"></i></div>
-    <div class="feed-widget__info">
-        <div class="feed-widget__text">
-            <b><a href='./'>Bob Smith</a></b><b> $300</b> Just bought a iPad
-        </div>
-        <div class="feed-widget__date">2/16/2016</div>
-    </div>
-</div>
-<div class="feed-widget__item feed-widget__item_user">
-    <div class="feed-widget__ico"><i class="fa fa-credit-card"></i></div>
-    <div class="feed-widget__info">
-        <div class="feed-widget__text">
-            <b><a href='./'>Jim Smith</a></b><b> $300,000</b> Bought a new Ferrari
-        </div>
-        <div class="feed-widget__date">2/16/2016</div>
-    </div>
-</div>
-<div class="feed-widget__item feed-widget__item_user">
-    <div class="feed-widget__ico"><i class="fa fa-credit-card"></i></div>
-    <div class="feed-widget__info">
-        <div class="feed-widget__text">
-            <b><a href='./'>Meghan Smith</a></b><b> $150</b> Grocery Shopping
-        </div>
-        <div class="feed-widget__date">2/16/2016</div>
-    </div>
-</div>*@

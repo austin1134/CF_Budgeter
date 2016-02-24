@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 using CF_Budgeter.Models;
 
@@ -29,14 +30,20 @@ namespace CF_Budgeter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Budget budget = new Budget();
             AccountDetailsViewModel accountDetailsViewModel = new AccountDetailsViewModel();
             var account = await db.Accounts.FindAsync(id);
+            var budget = await db.Budgets.FindAsync(id);
+
             accountDetailsViewModel.Id = account.Id;
             accountDetailsViewModel.HouseholdId = account.HouseholdId;
             accountDetailsViewModel.Balance = account.Balance;
             accountDetailsViewModel.Name = account.Name;
             accountDetailsViewModel.ReconciledBalance = account.ReconciledBalance;
             accountDetailsViewModel.Transactions = account.Transactions;
+            accountDetailsViewModel.TransactionCount = account.Transactions.Count();
+            accountDetailsViewModel.TotalBudgetAmount = budget.TotalBudgetAmount;
+            accountDetailsViewModel.AvailableToSpend = budget.TotalBudgetAmount - account.Balance;
 
             accountDetailsViewModel.createTransactionViewModel = new CreateTransactionViewModel();
             accountDetailsViewModel.createTransactionViewModel.AccountId = account.Id;
@@ -45,6 +52,7 @@ namespace CF_Budgeter.Controllers
             {
                 return HttpNotFound();
             }
+            IEnumerable<Transaction> Transactions = accountDetailsViewModel.Transactions.OrderByDescending(t => t.Date);
             return View(accountDetailsViewModel);
         }
 
