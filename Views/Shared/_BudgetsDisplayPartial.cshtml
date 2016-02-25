@@ -1,4 +1,5 @@
-﻿@using CF_Budgeter.Models
+﻿@using System.Web.UI.WebControls
+@using CF_Budgeter.Models
 @model IEnumerable<CF_Budgeter.Models.Budget>
 
 @foreach (var budget in Model)
@@ -10,6 +11,10 @@
                     <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title">@budget.Name</h3>
+                            <h5>Accounts</h5>
+                            @Html.ActionLink("Edit", "Edit", "Budgets", new { id = budget.Id }, null) |
+                            @Html.ActionLink("Details", "Details", "Budgets", new { id = budget.Id }, null) |
+                            @Html.ActionLink("Delete", "Delete", "Budgets", new { id = budget.Id }, null)
                         </div>
                         <div class="panel-body">
                             <div class="scrollable scrollbar-macosx">
@@ -39,7 +44,7 @@
                                                 <div role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%" class="progress-bar progress-bar-info progress-bar-striped active"></div>
                                             </td>
                                             <td>@budget.TotalBudgetAmount</td>
-                                            <td>@budgetitem.</td>
+                                            @*<td>@budget.</td>*@
                                         </tr>
                                     }
                                     </tbody>

@@ -19,6 +19,7 @@ namespace CF_Budgeter.Controllers
         public async Task<ActionResult> Index()
         {
             var budgets = db.Budgets.Include(b => b.Household);
+            ViewBag.Accounts = new SelectList(db.Accounts, "Id", "Name");
             return View(await budgets.ToListAsync());
         }
 

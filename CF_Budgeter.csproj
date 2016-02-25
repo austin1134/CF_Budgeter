@@ -87,6 +87,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -150,9 +155,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -1330,7 +1332,6 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_TransactionsPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginView.cshtml" />
     <Content Include="Views\Accounts\Details.cshtml" />
     <Content Include="Views\Households\Details.cshtml" />
     <Content Include="Views\Accounts\Create.cshtml" />
@@ -1375,6 +1376,9 @@
     <Content Include="Views\BudgetItems\Index.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shared\_BudgetItemsDisplayPartial.cshtml" />
+    <Content Include="Views\Account\ProfilePage.cshtml" />
+    <Content Include="Views\Shared\_AccountsListPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

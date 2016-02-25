@@ -58,11 +58,11 @@ namespace CF_Budgeter
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "747061671526-defbaeaddvjfecg0s56livtmbobd04mf.apps.googleusercontent.com",
+                ClientSecret = "eztRwBniTO2riFvo2b1jokip"
+            });
         }
     }
 }

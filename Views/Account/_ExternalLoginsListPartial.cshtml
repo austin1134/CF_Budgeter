@@ -1,8 +1,6 @@
 ﻿@model CF_Budgeter.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Use another service to log in.</h4>
-<hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0) {
@@ -14,13 +12,13 @@
         </div>
     }
     else {
-        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+        using (Html.BeginForm("ExternalLogin", "Account"/*, new { ReturnUrl = Model.ReturnUrl }*/)) {
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
                 <p>
                     @foreach (AuthenticationDescription p in loginProviders)
                     {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType
+                        <button type="submit" class="btn btn-block btn-social btn-@p.Caption.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType
                             <span class="fa fa-@p.Caption.ToLower()"></span></button>
                     }
                 </p>
@@ -28,4 +26,4 @@
         }
     }
 }
-<link href="~/assets/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" />
+<link href="~/dist/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" />

@@ -63,6 +63,14 @@ namespace CF_Budgeter.Controllers
         }
 
         //
+        [AllowAnonymous]
+        // GET: /Account/ProfilePage
+        public ActionResult ExternalLoginView(string returnUrl)
+        {
+            return View();
+        }
+
+        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]

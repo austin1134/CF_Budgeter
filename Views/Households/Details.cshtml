@@ -161,8 +161,8 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th class="users__table-id">#ID</th>
-                                                                        <th class="users__table-name">Name</th>
-                                                                        <th class="users__table-location">Location</th>
+                                                                        <th class="users__table-name">First Name</th>
+                                                                        <th class="users__table-location">Last Name</th>
                                                                         <th class="users__table-contact">Contact</th>
                                                                         <th class="users__table-date">Date</th>
                                                                         <th class="users__table-salary">Salary</th>
@@ -176,6 +176,7 @@
                                                                     @{
                                                                         foreach (var user in Model.Members)
                                                                         {
+                                                                            <a @Html.ActionLink("View Profile","ProfilePage", "Account", new { id = user.Id }, null)>
                                                                             <td>5217</td>
                                                                             <td>@user.FirstName</td>
                                                                             <td>@user.LastName</td>
@@ -185,7 +186,8 @@
                                                                             <td>Customer</td>
                                                                             <td>[8, 1, 7, 7, 9, 7, 5, 4, 5, 7, 1, 7, 1, 9, 4, 8, 5, 2]</td>
                                                                             <td>Inactive</td>
-                                                                        }
+                                                                            </a>
+                                                                         }
                                                                     }
                                                                 </tr>
                                                                 </tbody>

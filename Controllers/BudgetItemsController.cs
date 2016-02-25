@@ -18,7 +18,11 @@ namespace CF_Budgeter.Controllers
         // GET: BudgetItems
         public async Task<ActionResult> Index()
         {
+            Category category = new Category();
+
             var budgetItems = db.BudgetItems.Include(b => b.Category);
+            //var Name = category.Name;
+            //var AmountSpent = category.Transactions.Where(a => a.Category);
             return View(await budgetItems.ToListAsync());
         }
 
