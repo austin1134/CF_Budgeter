@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace CF_Budgeter.Controllers
 {
+    [Authorize]
     public class HouseholdsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

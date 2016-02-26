@@ -42,7 +42,7 @@ namespace CF_Budgeter.Models
         public DbSet<Category>Categories { get; set; }
         public DbSet<Household>Households { get; set; }
         public DbSet<Transaction>Transactions { get; set; }
-        public DbSet<Invitation>Invitations { get; set; }
+        public DbSet<Invitations>Invitations { get; set; }
         public DbSet<TransactionType>TransactionTypes { get; set; }
 
         public System.Data.Entity.DbSet<CF_Budgeter.Models.AccountDetailsViewModel> AccountDetailsViewModels { get; set; }

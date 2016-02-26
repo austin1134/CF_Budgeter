@@ -11,6 +11,7 @@ using CF_Budgeter.Models;
 
 namespace CF_Budgeter.Controllers
 {
+    [Authorize]
     public class TransactionTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

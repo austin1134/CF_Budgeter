@@ -13,6 +13,7 @@ using CF_Budgeter.Models;
 
 namespace CF_Budgeter.Controllers
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,7 +21,9 @@ namespace CF_Budgeter.Controllers
         // GET: Accounts
         public async Task<ActionResult> Index()
         {
+            Household household = new Household();
             var accounts = db.Accounts.Include(a => a.Household);
+            List<Account> accountList = db.Accounts.Where(h => h.HouseholdId == household.Id).ToList();
             return View(await accounts.ToListAsync());
         }
 
@@ -36,6 +39,8 @@ namespace CF_Budgeter.Controllers
             var account = await db.Accounts.FindAsync(id);
             var budget = await db.Budgets.FindAsync(id);
 
+            //Passing my accounts and createTransactionViewModel properties to new accountDetailsViewModel in order
+            //to get everything on my accounts page to be functional
             accountDetailsViewModel.Id = account.Id;
             accountDetailsViewModel.HouseholdId = account.HouseholdId;
             accountDetailsViewModel.Balance = account.Balance;

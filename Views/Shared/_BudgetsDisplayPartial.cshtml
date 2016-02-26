@@ -11,7 +11,7 @@
                     <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title">@budget.Name</h3>
-                            <h5>Accounts</h5>
+                            <h5>Accounts</h5> @budget.Household.Accounts
                             @Html.ActionLink("Edit", "Edit", "Budgets", new { id = budget.Id }, null) |
                             @Html.ActionLink("Details", "Details", "Budgets", new { id = budget.Id }, null) |
                             @Html.ActionLink("Delete", "Delete", "Budgets", new { id = budget.Id }, null)

@@ -14,7 +14,7 @@ namespace CF_Budgeter.Models
         this.Budgets = new HashSet<Budget>();
         this.Members = new HashSet<ApplicationUser>();
         this.Categories = new HashSet<Category>();
-        this.Invitations = new HashSet<Invitation>();
+        this.Invitations = new HashSet<Invitations>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -23,6 +23,6 @@ namespace CF_Budgeter.Models
         public virtual ICollection<Budget>Budgets { get; set; }
         public virtual ICollection<ApplicationUser>Members { get; set; }
         public virtual ICollection<Category>Categories { get; set; }
-        public virtual ICollection<Invitation>Invitations { get; set; }  
+        public virtual ICollection<Invitations>Invitations { get; set; }  
     }
 }
