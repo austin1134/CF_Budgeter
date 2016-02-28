@@ -62,7 +62,7 @@
         </nav>
         <div class="dashboard">
             <div class="sidebar">
-                <div class="quickmenu">
+                @*<div class="quickmenu">
                     <div class="quickmenu__cont">
                         <div class="quickmenu__list">
                             <div class="quickmenu__item active">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="scrollable scrollbar-macosx">
                     <div class="sidebar__cont">
                         <div class="sidebar__menu">
@@ -138,64 +138,6 @@
                             </ul>
                             <div class="sidebar__title">Template</div>
                             <ul class="nav nav-menu">
-                                <li>
-                                    <a href="#">
-                                        <div class="nav-menu__ico">
-                                            <i class="fa fa-fw fa-th-large"></i>
-                                        </div>
-                                        <div class="nav-menu__text"><span>UI Elements</span></div>
-                                        <div class="nav-menu__right">
-                                            <i class="fa fa-fw fa-angle-right arrow"></i>
-                                        </div>
-                                    </a>
-                                    <ul class="nav nav-menu__second collapse">
-                                        <li><a href="~/dist/general.html">General</a></li>
-                                        <li><a href="~/dist/panels.html">Panels</a></li>
-                                        <li><a href="~/dist/tabs.html">Tabs</a></li>
-                                        <li><a href="~/dist/modals.html">Modals</a></li>
-                                        <li><a href="~/dist/buttons.html">Buttons</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="nav-menu__ico">
-                                            <i class="fa fa-fw fa-clone"></i>
-                                        </div>
-                                        <div class="nav-menu__text"><span>Forms</span></div>
-                                        <div class="nav-menu__right">
-                                            <i class="fa fa-fw fa-angle-right arrow"></i>
-                                        </div>
-                                    </a>
-                                    <ul class="nav nav-menu__second collapse">
-                                        <li><a href="~/dist/controls.html">Controls</a></li>
-                                        <li><a href="~/dist/validation.html">Validation</a></li>
-                                        <li><a href="~/dist/texteditor.html">Text Editor</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="nav-menu__ico">
-                                            <i class="fa fa-fw fa-table"></i>
-                                        </div>
-                                        <div class="nav-menu__text"><span>Tables</span></div>
-                                        <div class="nav-menu__right">
-                                            <i class="fa fa-fw fa-angle-right arrow"></i>
-                                        </div>
-                                    </a>
-                                    <ul class="nav nav-menu__second collapse">
-                                        <li><a href="~/dist/table_static.html">Static</a></li>
-                                        <li><a href="~/dist/table_sortable.html">Sortable</a></li>
-                                        <li><a href="~/dist/table_data.html">DataTable</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="~/dist/charts.html">
-                                        <div class="nav-menu__ico">
-                                            <i class="fa fa-fw fa-pie-chart"></i>
-                                        </div>
-                                        <div class="nav-menu__text"><span>Charts</span></div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                         <div class="sidebar__menu">
@@ -507,8 +449,115 @@
         <script src="~/dist/js/template/index.js"></script>
         <script src="~/dist/js/main.js"></script>
         <script src="~/dist/js/demo.js"></script>
-
+        <script src="~/Scripts/highcharts/4.2.0/highcharts.js"></script>
+        <script src="~/Scripts/highcharts/4.2.0/highcharts-3d.js"></script>
+        <script src="~/Scripts/highcharts/4.2.0/highcharts-more.js"></script>
+        <script src="~/Scripts/highcharts/4.2.0/modules/exporting.js"></script>
     </div>
 </body>
 </html>
+<script>
+    $(function () {
+        $('#container1').highcharts({
+            chart: {
+                backgroundColor: 'transparent',
+                type: 'column',
+                options3d: {
+                    enabled: true,
+                    alpha: 15,
+                    beta: 15,
+                    viewDistance: 25,
+                    depth: 40
+                }
+            },
+
+            title: {
+                text: 'Total fruit consumption, grouped by gender'
+            },
+
+            xAxis: {
+                categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                title: {
+                    text: 'Number of fruits'
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<b>{point.key}</b><br>',
+                pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+            },
+
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    depth: 40
+                }
+            },
+
+            series: [{
+                name: 'John',
+                data: [5, 3, 4, 7, 2],
+                stack: 'male'
+            }, {
+                name: 'Joe',
+                data: [3, 4, 4, 2, 5],
+                stack: 'male'
+            }, {
+                name: 'Jane',
+                data: [2, 5, 6, 2, 1],
+                stack: 'female'
+            }, {
+                name: 'Janet',
+                data: [3, 0, 4, 4, 3],
+                stack: 'female'
+            }]
+        });
+    });
+</script>
+<script>
+    //3D Donut Graph
+    $(function () {
+        $('#container2').highcharts({
+            chart: {
+                backgroundColor: 'transparent',
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45
+                }
+            },
+            title: {
+                text: 'Contents of Highsoft\'s weekly fruit delivery'
+            },
+            subtitle: {
+                text: '3D donut in Highcharts'
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: 100,
+                    depth: 45
+                }
+            },
+            series: [{
+                name: 'Delivered amount',
+                data: [
+                    ['Bananas', 8],
+                    ['Kiwi', 3],
+                    ['Mixed nuts', 1],
+                    ['Oranges', 6],
+                    ['Apples', 8],
+                    ['Pears', 4],
+                    ['Clementines', 4],
+                    ['Reddish (bag)', 1],
+                    ['Grapes (bunch)', 1]
+                ]
+            }]
+        });
+    });
+</script>
 @RenderSection("scripts", required: false)

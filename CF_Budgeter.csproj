@@ -371,8 +371,10 @@
     <Content Include="dist\js\right.min.js" />
     <Content Include="dist\js\template\charts.js" />
     <Content Include="dist\js\template\controls.js" />
+    <Content Include="dist\js\template\index - Copy.js" />
     <Content Include="dist\js\template\index.js" />
     <Content Include="dist\js\template\mails.js" />
+    <Content Include="dist\js\template\MyCharts.js" />
     <Content Include="dist\js\template\orders.js" />
     <Content Include="dist\js\template\products.js" />
     <Content Include="dist\js\template\table_data.js" />

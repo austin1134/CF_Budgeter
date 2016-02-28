@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Account" + "-" + Model.Name;
 }
+
 <div class="main-filter">
     <form class="main-filter__search">
         <div class="input-group">
@@ -16,35 +17,44 @@
     </form>
 </div>
 <div class="container-fluid half-padding">
-<div class="pages pages_dashboard">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Account Statistics</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="ld-widget">
-                        <div class="ld-widget__cont">
-                            <div class="ld-widget-main">
-                                <div class="ld-widget-main__title">Account Activity</div>
-                                <div class="ld-widget-main__chart"></div>
-                            </div>
-                            <div class="ld-widget-side">
-                                <div class="ld-widget-side__title">Transactions By User</div>
-                                <div class="ld-widget-side__chart"></div>
-                                <div class="ld-widget-side__footer">
-                                    <div class="ld-widget-side__item">
-                                        <div class="ld-widget-side__label">User 1</div>
-                                        <div class="ld-widget-side__value">45</div>
+    <div class="pages pages_dashboard">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Overview</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="ov-widget">
+                            <div class="ov-widget__list">
+                                <div class="col-md-2 ov-widget__item ov-widget__item_inc">
+                                    <div class="ov-widget__value">$@Html.DisplayFor(model => model.AvailableToSpend)</div>
+                                    <div class="ov-widget__info">
+                                        <div class="ov-widget__title">Balance</div>
                                     </div>
-                                    <div class="ld-widget-side__item">
-                                        <div class="ld-widget-side__label">User 2</div>
-                                        <div class="ld-widget-side__value">30</div>
+                                </div>
+                                <div class="col-md-2 ov-widget__item ov-widget__item_dec">
+                                    <div class="ov-widget__value">$@Html.DisplayFor(model => model.Balance)</div>
+                                    <div class="ov-widget__info">
+                                        <div class="ov-widget__title">Amount Spent</div>
                                     </div>
-                                    <div class="ld-widget-side__item">
-                                        <div class="ld-widget-side__label">User 3</div>
-                                        <div class="ld-widget-side__value">20</div>
+                                </div>
+                                <div class="col-md-2 ov-widget__item ov-widget__item_warn">
+                                    <div class="ov-widget__value">$@Html.DisplayFor(budget => budget.TotalBudgetAmount)</div>
+                                    <div class="ov-widget__info">
+                                        <div class="ov-widget__title">Budget</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 ov-widget__item ov-widget__item_tack">
+                                    <div class="ov-widget__value">@Html.DisplayFor(model => model.TransactionCount)</div>
+                                    <div class="ov-widget__info">
+                                        <div class="ov-widget__title">Transactions</div>
+                                    </div>
+                                </div>
+                                <div class="ov-widget__bar">
+                                    <span>Progress To Your Budget Spending Limit</span>
+                                    <div class="progress">
+                                        <div role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: @Model.ProgressBar.ToString("0")" class="progress-bar progress-bar-info"></div>
                                     </div>
                                 </div>
                             </div>
@@ -52,66 +62,38 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Overview</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="ov-widget">
-                        <div class="ov-widget__list">
-                            <div class="ov-widget__item ov-widget__item_inc">
-                                <div class="ov-widget__value">$@Html.DisplayFor(model => model.AvailableToSpend)</div>
-                                <div class="ov-widget__info">
-                                    <div class="ov-widget__title">Available To Spend</div>
-                                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Account Statistics</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="ld-widget">
+                            <div class="col-md-7">
+                                <div id="container1"></div>
+                                @*<div class="ld-widget-main">
+                                    <div class="ld-widget-main__title">Account Activity</div>
+                                    <div class="ld-widget-main__chart"></div>*@
                             </div>
-                            <div class="ov-widget__item ov-widget__item_dec">
-                                <div class="ov-widget__value">$@Html.DisplayFor(model => model.Balance)</div>
-                                <div class="ov-widget__info">
-                                    <div class="ov-widget__title">Amount Spent This Month</div>
-                                </div>
-                            </div>
-                            <div class="ov-widget__item ov-widget__item_warn">
-                                <div class="ov-widget__value">$@Html.DisplayFor(budget => budget.TotalBudgetAmount)</div>
-                                <div class="ov-widget__info">
-                                    <div class="ov-widget__title">This Months Budget</div>
-                                </div>
-                            </div>
-                            <div class="ov-widget__item ov-widget__item_tack">
-                                <div class="ov-widget__value">@Html.DisplayFor(model => model.TransactionCount)</div>
-                                <div class="ov-widget__info">
-                                    <div class="ov-widget__title">Transactions This Month</div>
-                                </div>
-                            </div>
-                            <div class="ov-widget__bar">
-                                        <span>Progress To Your Budget Spending Limit</span>
-                                        <div class="progress">
-                                            <div role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%" class="progress-bar progress-bar-info"></div>
+                                <div class="col-md-5">
+                                    <div id="container2"></div>
+                                    @*<div class="ld-widget-side__title">Transactions By User</div>
+                                    <div class="ld-widget-side__chart"></div>
+                                    <div class="ld-widget-side__footer">
+                                        <div class="ld-widget-side__item">
+                                            <div class="ld-widget-side__label">User 1</div>
+                                            <div class="ld-widget-side__value">45</div>
                                         </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Recent Transactions</h3>
-                </div>
-                <div class="feed-widget">
-                    <div class="feed-widget__wrap scrollable scrollbar-macosx">
-                        <div class="feed-widget__cont">
-                            <div class="feed-widget__list">
-                                <div class="feed-widget__item feed-widget__item_user">
-                                    @{
-                                        
-                                        @Html.Partial("_TransactionsPartial", Model.Transactions)
-                                    }
+                                        <div class="ld-widget-side__item">
+                                            <div class="ld-widget-side__label">User 2</div>
+                                            <div class="ld-widget-side__value">30</div>
+                                        </div>
+                                        <div class="ld-widget-side__item">
+                                            <div class="ld-widget-side__label">User 3</div>
+                                            <div class="ld-widget-side__value">20</div>
+                                        </div>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>
@@ -119,22 +101,44 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Add Transaction</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Recent Transactions</h3>
+                    </div>
+                    <div class="feed-widget">
+                        <div class="feed-widget__wrap scrollable scrollbar-macosx">
+                            <div class="feed-widget__cont">
+                                <div class="feed-widget__list">
+                                    <div class="feed-widget__item feed-widget__item_user">
+                                        @{
+
+                                            @Html.Partial("_TransactionsPartial", Model.Transactions)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="st-widget">
-                    <div class="st-widget__wrap">
-                        <div class="st-widget__cont">
-                            @{
-                                @Html.Partial("_CreateTransactionPartial", Model.createTransactionViewModel)
-                            }
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Transaction</h3>
+                    </div>
+                    <div class="st-widget">
+                        <div class="st-widget__wrap">
+                            <div class="st-widget__cont">
+                                @{
+                                    @Html.Partial("_CreateTransactionPartial", Model.createTransactionViewModel)
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

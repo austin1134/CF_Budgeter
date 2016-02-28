@@ -50,6 +50,7 @@ namespace CF_Budgeter.Controllers
             accountDetailsViewModel.TransactionCount = account.Transactions.Count();
             accountDetailsViewModel.TotalBudgetAmount = budget.TotalBudgetAmount;
             accountDetailsViewModel.AvailableToSpend = budget.TotalBudgetAmount - account.Balance;
+            accountDetailsViewModel.ProgressBar = Decimal.Divide(100 * account.Balance, budget.TotalBudgetAmount);
 
             accountDetailsViewModel.createTransactionViewModel = new CreateTransactionViewModel();
             accountDetailsViewModel.createTransactionViewModel.AccountId = account.Id;

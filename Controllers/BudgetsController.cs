@@ -21,6 +21,7 @@ namespace CF_Budgeter.Controllers
         {
             var budgets = db.Budgets.Include(b => b.Household);
             ViewBag.Accounts = new SelectList(db.Accounts, "Id", "Name");
+            ViewBag.Categories = new SelectList(db.Categories, "Id", "Name");
             return View(await budgets.ToListAsync());
         }
 

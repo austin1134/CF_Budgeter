@@ -38,6 +38,36 @@ namespace CF_Budgeter.Controllers
             return View(household);
         }
 
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public ActionResult Join(int id, string JoinCode)
+        //{
+        //    //set up the confirmation page so the user can confim he wants to change households
+        //    //might also need a view model for this page
+        //    var invitation = db.Invitations.Find(id);
+
+        //    if (JoinCode == invitation.JoinCode.ToString())
+        //    {
+        //        var model = new RegisterViewModel
+        //        {
+        //            HouseholdId = invitation.Household.Id,
+        //            HouseholdName = invitation.Household.Name,
+        //            Email = invitation.ToEmail
+        //        };
+        //        var user = db.Users.FirstOrDefault(u => u.Email == invitation.ToEmail);
+        //        if (user != null)
+        //        {
+        //            //then user exists / populate user info
+        //            model.FirstName = user.FirstName;
+        //            model.LastName = user.LastName;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("LoginRegister", "Account", new {message = "Unauthorized"});
+        //    }
+        //}
+
         // GET: Households/Create
         public ActionResult Create()
         {
