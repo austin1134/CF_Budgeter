@@ -26,11 +26,22 @@ namespace CF_Budgeter.Controllers
         // GET: Households/Details/5
         public async Task<ActionResult> Details(int? id)
         {
+            ApplicationUser user = db.Users.Single(x => x.UserName == User.Identity.Name);
+            //check to make sure that user has access to this account
+            //get the account that contains the user
+            Household household = db.Households.SingleOrDefault(x => x.Id == id);
+            //get the household that contains the account
+
+            if (!household.Members.Contains(user))
+            {
+                throw new HttpException(401, "Unauthorized access");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }            
-            Household household = await db.Households.FindAsync(id);
+            //Household household = await db.Households.FindAsync(id);
             if (household == null)
             {
                 return HttpNotFound();

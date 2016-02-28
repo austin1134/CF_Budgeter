@@ -30,6 +30,17 @@ namespace CF_Budgeter.Controllers
         // GET: Accounts/Details/5
         public async Task<ActionResult> Details(int? id)
         {
+            Account accountAccount = db.Accounts.FirstOrDefault(x => x.Id == id);
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+
+            Household household = db.Households.FirstOrDefault(x => x.Id == accountAccount.HouseholdId);
+
+            if (!household.Members.Contains(user))
+            {
+                throw new HttpException(401, "Unauthorized access");
+            }
+     
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

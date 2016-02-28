@@ -355,6 +355,7 @@
     <Content Include="dist\css\right.css" />
     <Content Include="dist\css\right.min.css" />
     <Content Include="dist\general.html" />
+    <Content Include="dist\img\AccessDeniedYoda.jpg" />
     <Content Include="dist\img\apple-touch-favicon.png" />
     <Content Include="dist\img\background\lilac.jpg" />
     <Content Include="dist\img\favicon.png" />
@@ -1397,6 +1398,7 @@
     <Content Include="Views\Account\ProfilePage.cshtml" />
     <Content Include="Views\Shared\_AccountsListPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginView.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
