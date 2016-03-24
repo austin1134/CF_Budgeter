@@ -7,13 +7,10 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { @type = "button" }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create New", "Create","Accounts", new {householdId = 1d }, new { @class = "btn btn-primary", @type="button" })
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Household)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Balance)
         </th>
@@ -28,9 +25,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Household.Name)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Balance)
         </td>

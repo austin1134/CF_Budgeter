@@ -21,25 +21,25 @@ namespace CF_Budgeter.Controllers
         // GET: Accounts
         public async Task<ActionResult> Index()
         {
-            Household household = new Household();
-            var accounts = db.Accounts.Include(a => a.Household);
-            List<Account> accountList = db.Accounts.Where(h => h.HouseholdId == household.Id).ToList();
-            return View(await accounts.ToListAsync());
+            var currentUser = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).HouseholdId;
+            var accounts = db.Accounts.Where(a => a.HouseholdId == currentUser);
+
+            return View(accounts.ToList());
         }
 
         // GET: Accounts/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            Account accountAccount = db.Accounts.FirstOrDefault(x => x.Id == id);
+            Account account = db.Accounts.FirstOrDefault(x => x.Id == id);
 
-            ApplicationUser user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+            //ApplicationUser user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
 
-            Household household = db.Households.FirstOrDefault(x => x.Id == accountAccount.HouseholdId);
+            //Household household = db.Households.FirstOrDefault(x => x.Id == account.HouseholdId);
 
-            if (!household.Members.Contains(user))
-            {
-                throw new HttpException(401, "Unauthorized access");
-            }
+            //if (!household.Members.Contains(user))
+            //{
+            //    throw new HttpException(401, "Unauthorized access");
+            //}
      
             if (id == null)
             {
@@ -47,7 +47,7 @@ namespace CF_Budgeter.Controllers
             }
             //Budget budget = new Budget();
             AccountDetailsViewModel accountDetailsViewModel = new AccountDetailsViewModel();
-            var account = await db.Accounts.FindAsync(id);
+            //var account = await db.Accounts.FindAsync(id);
             var budget = await db.Budgets.FindAsync(id);
 
             //Passing my accounts and createTransactionViewModel properties to new accountDetailsViewModel in order
@@ -59,9 +59,14 @@ namespace CF_Budgeter.Controllers
             accountDetailsViewModel.ReconciledBalance = account.ReconciledBalance;
             accountDetailsViewModel.Transactions = account.Transactions;
             accountDetailsViewModel.TransactionCount = account.Transactions.Count();
-            accountDetailsViewModel.TotalBudgetAmount = budget.TotalBudgetAmount;
-            accountDetailsViewModel.AvailableToSpend = budget.TotalBudgetAmount - account.Balance;
-            accountDetailsViewModel.ProgressBar = Decimal.Divide(100 * account.Balance, budget.TotalBudgetAmount);
+
+            if (budget != null)
+            {
+                accountDetailsViewModel.TotalBudgetAmount = budget.TotalBudgetAmount;
+                accountDetailsViewModel.AvailableToSpend = budget.TotalBudgetAmount - account.Balance;
+                accountDetailsViewModel.ProgressBar =
+                Decimal.ToInt32(Decimal.Round(Decimal.Divide(100*account.Balance, budget.TotalBudgetAmount)));
+            }
 
             accountDetailsViewModel.createTransactionViewModel = new CreateTransactionViewModel();
             accountDetailsViewModel.createTransactionViewModel.AccountId = account.Id;
@@ -75,8 +80,11 @@ namespace CF_Budgeter.Controllers
         }
 
         // GET: Accounts/Create
-        public ActionResult Create()
+        public ActionResult Create(int householdId)
         {
+            //Account account = new Account();
+            //account.HouseholdId = householdId;
+            ViewBag.HouseholdId = new SelectList(db.Households, "Id", "Name");
             return View();
         }
 
@@ -92,6 +100,7 @@ namespace CF_Budgeter.Controllers
                 var user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 if (user != null)
                 {
+                    
                     account.HouseholdId = user.HouseholdId;
 
                     db.Accounts.Add(account);

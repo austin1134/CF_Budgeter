@@ -19,6 +19,9 @@ namespace CF_Budgeter.Controllers
         // GET: Categories
         public async Task<ActionResult> Index()
         {
+            //Household household = new Household();
+            //var categories = db.Categories.Where(c => c.Households.Any(h => h.Id == household.Id));
+
             return View(await db.Categories.ToListAsync());
         }
 
@@ -52,6 +55,13 @@ namespace CF_Budgeter.Controllers
         {
             if (ModelState.IsValid)
             {
+                BudgetItem budgetitem = new BudgetItem();
+
+                //Giving properties and adding a new budgetitem that belongs with the category
+                budgetitem.Name = category.Name;
+                budgetitem.Id = category.Id;
+
+                db.BudgetItems.Add(budgetitem);
                 db.Categories.Add(category);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

@@ -79,7 +79,8 @@
                                             </ul>
                                             <div class="tab-content">
                                                 <div id="new" role="tabpanel" class="tab-pane">
-                                                    <form class="form users-new">
+                                                    @Html.Partial("_InviteUserPartial", new Invitations { HouseholdId = Model.Id })
+                                                    @*<form class="form users-new">
                                                         <div class="container-fluid">
                                                             <div class="row">
                                                                 <div class="col-md-8">
@@ -152,7 +153,7 @@
                                                             </div>
                                                         </div>
                                                         <button class="btn btn-success">Save</button>
-                                                    </form>
+                                                    </form>*@
                                                 </div>
                                                 <div id="customers" role="tabpanel" class="tab-pane active">
                                                     <div class="scrollable scrollbar-macosx">
@@ -174,20 +175,27 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     @{
-                                                                        foreach (var user in Model.Members)
+                                                                        if (Model.Members != null)
                                                                         {
-                                                                            <a @Html.ActionLink("View Profile","ProfilePage", "Account", new { id = user.Id }, null)>
-                                                                            <td>5217</td>
-                                                                            <td>@user.FirstName</td>
-                                                                            <td>@user.LastName</td>
-                                                                            <td>@user.Email</td>
-                                                                            <td> </td>
-                                                                            <td>$9001.67</td>
-                                                                            <td>Customer</td>
-                                                                            <td>[8, 1, 7, 7, 9, 7, 5, 4, 5, 7, 1, 7, 1, 9, 4, 8, 5, 2]</td>
-                                                                            <td>Inactive</td>
-                                                                            </a>
-                                                                         }
+                                                                            foreach (var user in Model.Members)
+                                                                            {
+                                                                                <a @Html.ActionLink("View Profile", "ProfilePage", "Account", new {id = user.Id}, null)>
+                                                                                    <td>5217</td>
+                                                                                    <td>@user.FirstName</td>
+                                                                                    <td>@user.LastName</td>
+                                                                                    <td>@user.Email</td>
+                                                                                    <td> </td>
+                                                                                    <td>$9001.67</td>
+                                                                                    <td>Customer</td>
+                                                                                    <td>[8, 1, 7, 7, 9, 7, 5, 4, 5, 7, 1, 7, 1, 9, 4, 8, 5, 2]</td>
+                                                                                    <td>Inactive</td>
+                                                                                </a>
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <text>There are currently no users in this household.</text>
+                                                                        }
                                                                     }
                                                                 </tr>
                                                                 </tbody>
@@ -268,39 +276,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<div class="col-md-3">
-                                <div class="users-preview datalist-preview">
-                                    <div class="users-preview__cont">
-                                        <div title="Name" class="users-preview__name">Name</div>
-                                        <div class="users-preview__data">
-                                            <div class="users-preview__photo">
-                                                <div style=""></div>
-                                            </div>
-                                            <div class="users-preview__info">
-                                                <div class="users-preview__position">Position</div>
-                                                <div class="users-preview__stat sparkline"></div>
-                                                <div class="users-preview__edit">
-                                                    <div class="btn-group btn-group-sm">
-                                                        <button type="button" class="btn btn-danger">Edit</button>
-                                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-danger dropdown-toggle"><span class="caret"></span></button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="#">Details</a></li>
-                                                            <li><a href="#">Disable</a></li>
-                                                            <li><a href="#">Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="users-preview__props">
-                                            <div title="Location" class="users-preview__prop"><i class="fa fa-map-marker"></i><span class="users-preview__location">Location</span></div>
-                                            <div title="Contact" class="users-preview__prop"><i class="fa fa-envelope"></i><span class="users-preview__contact">Contact</span></div>
-                                            <div class="users-preview__prop"><i class="fa fa-calendar"></i><span class="users-preview__date">Date</span></div>
-                                            <div class="users-preview__prop"><i class="fa fa-heartbeat"></i><span class="users-preview__status">Status</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>*@
                         </div>
                     </div>
                 </div>

@@ -20,9 +20,10 @@ namespace CF_Budgeter.Controllers
         public async Task<ActionResult> Index()
         {
             Category category = new Category();
+            BudgetItem budgetItem = new BudgetItem();
 
             var budgetItems = db.BudgetItems.Include(b => b.Category);
-            //var Name = category.Name;
+            budgetItem.Name = category.Name;
             //var AmountSpent = category.Transactions.Where(a => a.Category);
             return View(await budgetItems.ToListAsync());
         }

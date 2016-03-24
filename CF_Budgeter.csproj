@@ -224,6 +224,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseholdsController.cs" />
+    <Compile Include="Controllers\InvitationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransactionTypesController.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CreateTransactionViewModel.cs" />
     <Compile Include="Models\Household.cs" />
+    <Compile Include="Models\HouseholdDetailsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invitations.cs" />
     <Compile Include="Models\InviteUsersViewModel.cs" />
@@ -363,6 +365,7 @@
     <Content Include="dist\img\nophoto.png" />
     <Content Include="dist\img\paint.svg" />
     <Content Include="dist\img\right.png" />
+    <Content Include="dist\img\right1.png" />
     <Content Include="dist\img\right.svg" />
     <Content Include="dist\img\rightlogo.png" />
     <Content Include="dist\inbox.html" />
@@ -1199,7 +1202,9 @@
     <Content Include="source\libs\summernote\dist\summernote.min.js" />
     <Content Include="source\libs\tablesorter\jquery.metadata.js" />
     <Content Include="source\libs\tablesorter\jquery.tablesorter.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1399,6 +1404,12 @@
     <Content Include="Views\Shared\_AccountsListPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginView.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Account\InvitationRegister.cshtml" />
+    <Content Include="Views\Shared\_PieChartPartial.cshtml" />
+    <Content Include="Views\Shared\_ProfilePagePartial.cshtml" />
+    <Content Include="Views\Shared\_InviteUserPartial.cshtml" />
+    <Content Include="Views\Shared\_AccountDetailsGraphPartial.cshtml" />
+    <Content Include="Views\Households\Join.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

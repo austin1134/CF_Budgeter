@@ -19,9 +19,13 @@ namespace CF_Budgeter.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Transactions
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int id)
         {
-            return View(await db.Transactions.OrderByDescending(t => t.Date).ToListAsync());
+            //var transactions = DateTime.FromOADate(30)
+            var transactions = db.Transactions.Where(x => x.AccountId == x.Id).OrderByDescending(t => t.Date).ToList();
+
+            //return View(await db.Transactions.OrderByDescending(t => t.Date).ToListAsync());
+            return View(transactions.ToList());
         }
 
         // GET: Transactions/Details/5
@@ -40,7 +44,7 @@ namespace CF_Budgeter.Controllers
         }
 
         // GET: Transactions/Create
-        public ActionResult Create(int accountId)
+        public ActionResult Details(int accountId)
         {
             CreateTransactionViewModel createTransactionViewModel = new CreateTransactionViewModel();
 
@@ -65,8 +69,6 @@ namespace CF_Budgeter.Controllers
                 if (user != null)
 
                 {
-                    transaction.AccountId = user.HouseholdId;
-                    //createTransactionViewModel.Date = DateTimeOffset.Now;
                     var account = db.Accounts.FirstOrDefault(x => x.Id == transaction.AccountId);
                     account.Balance += transaction.Amount;
 
@@ -78,7 +80,7 @@ namespace CF_Budgeter.Controllers
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", transaction.CategoryId);
             ViewBag.Category = new SelectList(db.Categories, "Id", "Name", transaction.Category);
 
-            return View(transaction);
+            return RedirectToAction("Details", "Accounts", new { id = transaction.AccountId});
         }
 
         // GET: Transactions/Edit/5
@@ -137,6 +139,8 @@ namespace CF_Budgeter.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Transaction transaction = await db.Transactions.FindAsync(id);
+            var account = db.Accounts.FirstOrDefault(x => x.Id == transaction.AccountId);
+            account.Balance -= transaction.Amount;
             db.Transactions.Remove(transaction);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

@@ -90,6 +90,9 @@ namespace CF_Budgeter.Models
 
         [Display(Name = "Household")]
         public string Household { get; set; }
+
+        public int HouseholdId { get; set; }
+        public string HouseholdName { get; set; }
     }
 
     public class ResetPasswordViewModel

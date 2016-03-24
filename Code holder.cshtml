@@ -29,12 +29,6 @@
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                    ////update account balance for each transaction
-                    //var account = db.Accounts.FirstOrDefault(x => x.Id == transaction.AccountId);
-                    //account.Balance += transaction.Amount;
-
-                    ////update income and expenses for the household
-                    //var household = db.Households.FirstOrDefault(x => x.Id == account.HouseholdId);
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <div class="checkbox">
@@ -56,8 +50,8 @@
                 <p>
                     @Html.ActionLink("Forgot your password?", "ForgotPassword")
                 </p>*@
-            
-        @*</section>
+
+@*</section>
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">

@@ -15,8 +15,9 @@ namespace CF_Budgeter.Models
         public decimal? ReconciledBalance { get; set; }
         public decimal TotalBudgetAmount { get; set; }
         public decimal AvailableToSpend { get; set; }
-        public decimal ProgressBar { get; set; }
+        public int ProgressBar { get; set; }
         public IEnumerable<Transaction> Transactions { get; set; }
+        public IEnumerable<BudgetItem> BudgetItems { get; set; }
 
         public CreateTransactionViewModel createTransactionViewModel { get; set; }
     }

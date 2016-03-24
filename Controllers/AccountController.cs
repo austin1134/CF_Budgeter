@@ -65,7 +65,7 @@ namespace CF_Budgeter.Controllers
         //
         [AllowAnonymous]
         // GET: /Account/ProfilePage
-        public ActionResult ExternalLoginView(string returnUrl)
+        public ActionResult ProfilePage(string returnUrl)
         {
             return View();
         }
@@ -160,7 +160,7 @@ namespace CF_Budgeter.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Household = new Household()};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -194,8 +194,6 @@ namespace CF_Budgeter.Controllers
         //        return PartialView("_JoinHouseholdPartial");
         //    }
         //}
-
-        //public string NewHousehold { get; set; }
 
         //
         // GET: /Account/ConfirmEmail

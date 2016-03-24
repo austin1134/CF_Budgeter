@@ -1,9 +1,14 @@
-﻿@model CF_Budgeter.Models.IndexViewModel
+﻿@using System.Web.Mvc.Html
+@using CF_Budgeter.Models
+@model CF_Budgeter.Models.IndexViewModel
 @{
     ViewBag.Title = "Manage Your Account";
 }
 
 <p class="text-success">@ViewBag.StatusMessage</p>
+
+
+@Html.RenderPartial("_ProfilePagePartial")
 <div>
     <hr />
     <dl class="dl-horizontal">

@@ -9,7 +9,7 @@ namespace CF_Budgeter.Models
     {
         public int Id { get; set; } 
         public string ToEmail { get; set; }
-        public int Userid { get; set; }
+        public string UserId { get; set; }
         public int HouseholdId { get; set; }
         public Guid JoinCode { get; set; }
         public bool Joined { get; set; }
